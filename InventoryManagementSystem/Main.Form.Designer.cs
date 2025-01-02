@@ -1,6 +1,6 @@
 ﻿namespace InventoryManagementSystem
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -37,6 +37,7 @@
             ClientSize = new Size(894, 481);
             Name = "Form1";
             Text = "Form1";
+            Load += MainForm_Load;
             ResumeLayout(false);
         }
 
