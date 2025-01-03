@@ -43,7 +43,7 @@
             ProductList = new ListBox();
             PartsLabel = new Label();
             ProductsLabel = new Label();
-            label3 = new Label();
+            MainFormTitle = new Label();
             SuspendLayout();
             // 
             // Exit
@@ -182,22 +182,22 @@
             ProductsLabel.Text = "Products";
             ProductsLabel.Click += label2_Click;
             // 
-            // label3
+            // MainFormTitle
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(12, 9);
-            label3.Name = "label3";
-            label3.Size = new Size(227, 21);
-            label3.TabIndex = 15;
-            label3.Text = "Inventory Management System";
+            MainFormTitle.AutoSize = true;
+            MainFormTitle.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            MainFormTitle.Location = new Point(12, 9);
+            MainFormTitle.Name = "MainFormTitle";
+            MainFormTitle.Size = new Size(227, 21);
+            MainFormTitle.TabIndex = 15;
+            MainFormTitle.Text = "Inventory Management System";
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1078, 550);
-            Controls.Add(label3);
+            Controls.Add(MainFormTitle);
             Controls.Add(ProductsLabel);
             Controls.Add(PartsLabel);
             Controls.Add(ProductList);
@@ -237,6 +237,6 @@
         private ListBox ProductList;
         private Label PartsLabel;
         private Label ProductsLabel;
-        private Label label3;
+        private Label MainFormTitle;
     }
 }
