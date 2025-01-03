@@ -39,11 +39,23 @@
             SearchProducts = new Button();
             SearchPartTextBox = new TextBox();
             SearchProductTextBox = new TextBox();
-            PartList = new ListBox();
-            ProductList = new ListBox();
             PartsLabel = new Label();
             ProductsLabel = new Label();
             MainFormTitle = new Label();
+            PartList = new ListView();
+            listView2 = new ListView();
+            PartID = new ColumnHeader();
+            PartName = new ColumnHeader();
+            PartInventory = new ColumnHeader();
+            PartPrice = new ColumnHeader();
+            PartMin = new ColumnHeader();
+            ProductID = new ColumnHeader();
+            ProductName = new ColumnHeader();
+            ProductInventory = new ColumnHeader();
+            PartMax = new ColumnHeader();
+            ProductPrice = new ColumnHeader();
+            ProductMin = new ColumnHeader();
+            ProductMax = new ColumnHeader();
             SuspendLayout();
             // 
             // Exit
@@ -142,24 +154,6 @@
             SearchProductTextBox.Size = new Size(180, 23);
             SearchProductTextBox.TabIndex = 10;
             // 
-            // PartList
-            // 
-            PartList.FormattingEnabled = true;
-            PartList.ItemHeight = 15;
-            PartList.Location = new Point(24, 118);
-            PartList.Name = "PartList";
-            PartList.Size = new Size(480, 199);
-            PartList.TabIndex = 11;
-            // 
-            // ProductList
-            // 
-            ProductList.FormattingEnabled = true;
-            ProductList.ItemHeight = 15;
-            ProductList.Location = new Point(572, 118);
-            ProductList.Name = "ProductList";
-            ProductList.Size = new Size(480, 199);
-            ProductList.TabIndex = 12;
-            // 
             // PartsLabel
             // 
             PartsLabel.AutoSize = true;
@@ -192,16 +186,101 @@
             MainFormTitle.TabIndex = 15;
             MainFormTitle.Text = "Inventory Management System";
             // 
+            // PartList
+            // 
+            PartList.Columns.AddRange(new ColumnHeader[] { PartID, PartName, PartInventory, PartPrice, PartMin, PartMax });
+            PartList.Location = new Point(24, 118);
+            PartList.Name = "PartList";
+            PartList.Size = new Size(480, 199);
+            PartList.TabIndex = 16;
+            PartList.UseCompatibleStateImageBehavior = false;
+            PartList.View = View.Details;
+            // 
+            // listView2
+            // 
+            listView2.Columns.AddRange(new ColumnHeader[] { ProductID, ProductName, ProductInventory, ProductPrice, ProductMin, ProductMax });
+            listView2.Location = new Point(572, 118);
+            listView2.Name = "listView2";
+            listView2.Size = new Size(484, 199);
+            listView2.TabIndex = 17;
+            listView2.UseCompatibleStateImageBehavior = false;
+            listView2.View = View.Details;
+            // 
+            // PartID
+            // 
+            PartID.Text = "Part ID";
+            PartID.Width = 80;
+            // 
+            // PartName
+            // 
+            PartName.Text = "Name";
+            PartName.TextAlign = HorizontalAlignment.Center;
+            PartName.Width = 80;
+            // 
+            // PartInventory
+            // 
+            PartInventory.Text = "Inventory";
+            PartInventory.TextAlign = HorizontalAlignment.Center;
+            PartInventory.Width = 80;
+            // 
+            // PartPrice
+            // 
+            PartPrice.Text = "Price";
+            PartPrice.TextAlign = HorizontalAlignment.Center;
+            PartPrice.Width = 80;
+            // 
+            // PartMin
+            // 
+            PartMin.Text = "Min";
+            PartMin.TextAlign = HorizontalAlignment.Center;
+            PartMin.Width = 80;
+            // 
+            // ProductID
+            // 
+            ProductID.Text = "Product ID";
+            ProductID.Width = 80;
+            // 
+            // ProductName
+            // 
+            ProductName.Text = "Name";
+            ProductName.Width = 80;
+            // 
+            // ProductInventory
+            // 
+            ProductInventory.Text = "Inventory";
+            ProductInventory.Width = 80;
+            // 
+            // PartMax
+            // 
+            PartMax.Text = "Max";
+            PartMax.TextAlign = HorizontalAlignment.Center;
+            PartMax.Width = 80;
+            // 
+            // ProductPrice
+            // 
+            ProductPrice.Text = "Price";
+            ProductPrice.Width = 80;
+            // 
+            // ProductMin
+            // 
+            ProductMin.Text = "Min";
+            ProductMin.Width = 80;
+            // 
+            // ProductMax
+            // 
+            ProductMax.Text = "Max";
+            ProductMax.Width = 80;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1078, 550);
+            Controls.Add(listView2);
+            Controls.Add(PartList);
             Controls.Add(MainFormTitle);
             Controls.Add(ProductsLabel);
             Controls.Add(PartsLabel);
-            Controls.Add(ProductList);
-            Controls.Add(PartList);
             Controls.Add(SearchProductTextBox);
             Controls.Add(SearchPartTextBox);
             Controls.Add(SearchProducts);
@@ -233,10 +312,22 @@
         private Button SearchProducts;
         private TextBox SearchPartTextBox;
         private TextBox SearchProductTextBox;
-        private ListBox PartList;
-        private ListBox ProductList;
         private Label PartsLabel;
         private Label ProductsLabel;
         private Label MainFormTitle;
+        private ListView PartList;
+        private ColumnHeader PartID;
+        private ColumnHeader PartName;
+        private ColumnHeader PartInventory;
+        private ColumnHeader PartPrice;
+        private ColumnHeader PartMin;
+        private ListView listView2;
+        private ColumnHeader ProductID;
+        private ColumnHeader ProductName;
+        private ColumnHeader ProductInventory;
+        private ColumnHeader PartMax;
+        private ColumnHeader ProductPrice;
+        private ColumnHeader ProductMin;
+        private ColumnHeader ProductMax;
     }
 }
