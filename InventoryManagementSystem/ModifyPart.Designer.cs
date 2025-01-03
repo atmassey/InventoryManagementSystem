@@ -237,7 +237,7 @@
             Controls.Add(TitleLabel);
             Name = "ModifyPart";
             ShowIcon = false;
-            Text = "Modify Part";
+            Text = "Part";
             ResumeLayout(false);
             PerformLayout();
         }
