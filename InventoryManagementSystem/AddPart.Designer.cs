@@ -218,7 +218,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(370, 419);
+            ClientSize = new Size(370, 399);
             Controls.Add(CancelButton);
             Controls.Add(SaveButton);
             Controls.Add(MachineIDTextBox);
