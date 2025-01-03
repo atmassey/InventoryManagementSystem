@@ -293,6 +293,7 @@
             Controls.Add(AddPart);
             Controls.Add(Exit);
             Name = "MainForm";
+            ShowIcon = false;
             Text = "Main Screen";
             Load += MainForm_Load;
             ResumeLayout(false);
