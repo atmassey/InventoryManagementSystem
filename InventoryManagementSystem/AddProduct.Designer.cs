@@ -61,6 +61,8 @@
             SaveProduct = new Button();
             DeleteProduct = new Button();
             CancelProduct = new Button();
+            PartsAssocLabel = new Label();
+            ProductsLabel = new Label();
             SuspendLayout();
             // 
             // TitleLabel
@@ -313,11 +315,33 @@
             CancelProduct.Text = "Cancel";
             CancelProduct.UseVisualStyleBackColor = true;
             // 
+            // PartsAssocLabel
+            // 
+            PartsAssocLabel.AutoSize = true;
+            PartsAssocLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            PartsAssocLabel.Location = new Point(401, 306);
+            PartsAssocLabel.Name = "PartsAssocLabel";
+            PartsAssocLabel.Size = new Size(204, 17);
+            PartsAssocLabel.TabIndex = 58;
+            PartsAssocLabel.Text = "Parts Associated with this Product";
+            // 
+            // ProductsLabel
+            // 
+            ProductsLabel.AutoSize = true;
+            ProductsLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            ProductsLabel.Location = new Point(401, 47);
+            ProductsLabel.Name = "ProductsLabel";
+            ProductsLabel.Size = new Size(116, 17);
+            ProductsLabel.TabIndex = 59;
+            ProductsLabel.Text = "All candidate Parts";
+            // 
             // AddProduct
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(904, 587);
+            Controls.Add(ProductsLabel);
+            Controls.Add(PartsAssocLabel);
             Controls.Add(CancelProduct);
             Controls.Add(DeleteProduct);
             Controls.Add(SaveProduct);
@@ -381,5 +405,7 @@
         private Button SaveProduct;
         private Button DeleteProduct;
         private Button CancelProduct;
+        private Label PartsAssocLabel;
+        private Label ProductsLabel;
     }
 }
