@@ -364,6 +364,7 @@
             Controls.Add(PartIDLabel);
             Controls.Add(TitleLabel);
             Name = "ModifyProduct";
+            ShowIcon = false;
             Text = "ModifyProduct";
             ResumeLayout(false);
             PerformLayout();
