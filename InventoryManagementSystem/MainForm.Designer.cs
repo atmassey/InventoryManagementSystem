@@ -43,16 +43,16 @@
             ProductsLabel = new Label();
             MainFormTitle = new Label();
             PartList = new ListView();
-            listView2 = new ListView();
             PartID = new ColumnHeader();
             PartName = new ColumnHeader();
             PartInventory = new ColumnHeader();
             PartPrice = new ColumnHeader();
             PartMin = new ColumnHeader();
+            PartMax = new ColumnHeader();
+            listView2 = new ListView();
             ProductID = new ColumnHeader();
             ProductName = new ColumnHeader();
             ProductInventory = new ColumnHeader();
-            PartMax = new ColumnHeader();
             ProductPrice = new ColumnHeader();
             ProductMin = new ColumnHeader();
             ProductMax = new ColumnHeader();
@@ -188,6 +188,7 @@
             // 
             // PartList
             // 
+            PartList.BackColor = SystemColors.ScrollBar;
             PartList.Columns.AddRange(new ColumnHeader[] { PartID, PartName, PartInventory, PartPrice, PartMin, PartMax });
             PartList.Location = new Point(24, 118);
             PartList.Name = "PartList";
@@ -195,16 +196,6 @@
             PartList.TabIndex = 16;
             PartList.UseCompatibleStateImageBehavior = false;
             PartList.View = View.Details;
-            // 
-            // listView2
-            // 
-            listView2.Columns.AddRange(new ColumnHeader[] { ProductID, ProductName, ProductInventory, ProductPrice, ProductMin, ProductMax });
-            listView2.Location = new Point(572, 118);
-            listView2.Name = "listView2";
-            listView2.Size = new Size(484, 199);
-            listView2.TabIndex = 17;
-            listView2.UseCompatibleStateImageBehavior = false;
-            listView2.View = View.Details;
             // 
             // PartID
             // 
@@ -235,6 +226,23 @@
             PartMin.TextAlign = HorizontalAlignment.Center;
             PartMin.Width = 80;
             // 
+            // PartMax
+            // 
+            PartMax.Text = "Max";
+            PartMax.TextAlign = HorizontalAlignment.Center;
+            PartMax.Width = 80;
+            // 
+            // listView2
+            // 
+            listView2.BackColor = SystemColors.ScrollBar;
+            listView2.Columns.AddRange(new ColumnHeader[] { ProductID, ProductName, ProductInventory, ProductPrice, ProductMin, ProductMax });
+            listView2.Location = new Point(572, 118);
+            listView2.Name = "listView2";
+            listView2.Size = new Size(484, 199);
+            listView2.TabIndex = 17;
+            listView2.UseCompatibleStateImageBehavior = false;
+            listView2.View = View.Details;
+            // 
             // ProductID
             // 
             ProductID.Text = "Product ID";
@@ -249,12 +257,6 @@
             // 
             ProductInventory.Text = "Inventory";
             ProductInventory.Width = 80;
-            // 
-            // PartMax
-            // 
-            PartMax.Text = "Max";
-            PartMax.TextAlign = HorizontalAlignment.Center;
-            PartMax.Width = 80;
             // 
             // ProductPrice
             // 
