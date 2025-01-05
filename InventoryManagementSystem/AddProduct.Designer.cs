@@ -314,6 +314,7 @@
             CancelProduct.TabIndex = 35;
             CancelProduct.Text = "Cancel";
             CancelProduct.UseVisualStyleBackColor = true;
+            CancelProduct.Click += Cancel_Click;
             // 
             // PartsAssocLabel
             // 

@@ -76,6 +76,7 @@
             AddPart.TabIndex = 1;
             AddPart.Text = "Add";
             AddPart.UseVisualStyleBackColor = true;
+            AddPart.Click += AddPart_Click;
             // 
             // ModifyPart
             // 
@@ -103,6 +104,7 @@
             AddProduct.TabIndex = 4;
             AddProduct.Text = "Add";
             AddProduct.UseVisualStyleBackColor = true;
+            AddProduct.Click += AddProduct_Click;
             // 
             // ModifyProduct
             // 
@@ -163,7 +165,6 @@
             PartsLabel.Size = new Size(44, 21);
             PartsLabel.TabIndex = 13;
             PartsLabel.Text = "Parts";
-            PartsLabel.Click += label1_Click;
             // 
             // ProductsLabel
             // 
@@ -174,7 +175,6 @@
             ProductsLabel.Size = new Size(71, 21);
             ProductsLabel.TabIndex = 14;
             ProductsLabel.Text = "Products";
-            ProductsLabel.Click += label2_Click;
             // 
             // MainFormTitle
             // 

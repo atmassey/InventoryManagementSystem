@@ -46,7 +46,7 @@
             MaxTextBox = new TextBox();
             MachineIDTextBox = new TextBox();
             SaveButton = new Button();
-            CancelButton = new Button();
+            Cancel_Button = new Button();
             SuspendLayout();
             // 
             // TitleLabel
@@ -205,21 +205,22 @@
             SaveButton.Text = "Save";
             SaveButton.UseVisualStyleBackColor = true;
             // 
-            // CancelButton
+            // Cancel_Button
             // 
-            CancelButton.Location = new Point(265, 347);
-            CancelButton.Name = "CancelButton";
-            CancelButton.Size = new Size(80, 30);
-            CancelButton.TabIndex = 18;
-            CancelButton.Text = "Cancel";
-            CancelButton.UseVisualStyleBackColor = true;
+            Cancel_Button.Location = new Point(265, 347);
+            Cancel_Button.Name = "Cancel_Button";
+            Cancel_Button.Size = new Size(80, 30);
+            Cancel_Button.TabIndex = 18;
+            Cancel_Button.Text = "Cancel";
+            Cancel_Button.UseVisualStyleBackColor = true;
+            Cancel_Button.Click += Cancel_Click;
             // 
             // AddPart
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(370, 399);
-            Controls.Add(CancelButton);
+            Controls.Add(Cancel_Button);
             Controls.Add(SaveButton);
             Controls.Add(MachineIDTextBox);
             Controls.Add(MaxTextBox);
@@ -265,6 +266,6 @@
         private TextBox MaxTextBox;
         private TextBox MachineIDTextBox;
         private Button SaveButton;
-        private Button CancelButton;
+        private Button Cancel_Button;
     }
 }

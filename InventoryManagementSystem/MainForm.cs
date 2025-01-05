@@ -12,28 +12,28 @@ namespace InventoryManagementSystem
         private void MainForm_Load(object sender, EventArgs e)
         {
 
+
         }
 
         private void Exit_Click(object sender, EventArgs e)
         {
             Close();
+            // Exit the program if main form is closed by user
+            Environment.Exit(0);
         }
 
         private void AddPart_Click(object sender, EventArgs e)
         {
-            AddPart.Show();
+            AddPart addPart = new AddPart();
+            addPart.Show();
+            Hide();
         }
 
         private void AddProduct_Click(object sender, EventArgs e)
         {
-            AddProduct.Show();
-        }
-        private void label1_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
+            AddProduct addProduct = new AddProduct();
+            addProduct.Show();
+            Hide();
         }
     }
 }
