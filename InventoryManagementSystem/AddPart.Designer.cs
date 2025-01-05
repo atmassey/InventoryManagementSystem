@@ -194,7 +194,7 @@
             MachineIDTextBox.Name = "MachineIDTextBox";
             MachineIDTextBox.Size = new Size(170, 23);
             MachineIDTextBox.TabIndex = 16;
-            MachineIDTextBox.TextChanged += textBox7_TextChanged;
+            MachineIDTextBox.TextChanged += Inventory_TextChanged;
             // 
             // SaveButton
             // 
