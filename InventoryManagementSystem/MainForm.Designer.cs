@@ -251,26 +251,31 @@
             // ProductName
             // 
             ProductName.Text = "Name";
+            ProductName.TextAlign = HorizontalAlignment.Center;
             ProductName.Width = 80;
             // 
             // ProductInventory
             // 
             ProductInventory.Text = "Inventory";
+            ProductInventory.TextAlign = HorizontalAlignment.Center;
             ProductInventory.Width = 80;
             // 
             // ProductPrice
             // 
             ProductPrice.Text = "Price";
+            ProductPrice.TextAlign = HorizontalAlignment.Center;
             ProductPrice.Width = 80;
             // 
             // ProductMin
             // 
             ProductMin.Text = "Min";
+            ProductMin.TextAlign = HorizontalAlignment.Center;
             ProductMin.Width = 80;
             // 
             // ProductMax
             // 
             ProductMax.Text = "Max";
+            ProductMax.TextAlign = HorizontalAlignment.Center;
             ProductMax.Width = 80;
             // 
             // MainForm
