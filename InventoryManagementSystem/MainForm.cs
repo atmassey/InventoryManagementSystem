@@ -18,7 +18,7 @@ namespace InventoryManagementSystem
         private void Exit_Click(object sender, EventArgs e)
         {
             Close();
-            // Exit the program if main form is closed by user
+            // Exit the program if main form is closed by user because there is no longer and interface to interact with
             Environment.Exit(0);
         }
 
