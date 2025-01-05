@@ -19,6 +19,8 @@ namespace InventoryManagementSystem
         private void Cancel_Click(object sender, EventArgs e)
         {
             Close();
+            MainForm mainForm = new MainForm();
+            mainForm.Show();
         }
     }
 }

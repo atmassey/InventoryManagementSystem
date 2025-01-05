@@ -21,20 +21,31 @@ namespace InventoryManagementSystem
             // Exit the program if main form is closed by user because there is no longer and interface to interact with
             Environment.Exit(0);
         }
-
         private void AddPart_Click(object sender, EventArgs e)
         {
             AddPart addPart = new AddPart();
             addPart.Show();
             Hide();
         }
-
+        private void ModifyPart_Click(Object sender, EventArgs e)
+        {
+            ModifyPart modifyPart = new ModifyPart();
+            modifyPart.Show();
+            Hide();
+        }
         private void AddProduct_Click(object sender, EventArgs e)
         {
             AddProduct addProduct = new AddProduct();
             addProduct.Show();
             Hide();
         }
+        private void ModifyProduct_Click(Object sender, EventArgs e)
+        {
+            ModifyProduct modifyProduct = new ModifyProduct();
+            modifyProduct.Show();
+            Hide();
+        }
+
     }
 }
 

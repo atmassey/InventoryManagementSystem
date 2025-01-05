@@ -86,6 +86,7 @@
             ModifyPart.TabIndex = 2;
             ModifyPart.Text = "Modify";
             ModifyPart.UseVisualStyleBackColor = true;
+            ModifyPart.Click += ModifyPart_Click;
             // 
             // DeletePart
             // 
@@ -114,6 +115,7 @@
             ModifyProduct.TabIndex = 5;
             ModifyProduct.Text = "Modify";
             ModifyProduct.UseVisualStyleBackColor = true;
+            ModifyProduct.Click += ModifyProduct_Click;
             // 
             // DeleteProduct
             // 
