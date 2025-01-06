@@ -92,6 +92,8 @@ namespace InventoryManagementSystem
                     }
                 }
             }
+            PartsDataView.ClearSelection();
+            DeletePart.Enabled = false;
         }
         private void AddProduct_Click(object sender, EventArgs e)
         {
@@ -118,6 +120,8 @@ namespace InventoryManagementSystem
                     }
                 }
             }
+            ProductsDataView.ClearSelection();
+            DeleteProduct.Enabled = false;
         }
         private void SearchProducts_Click(Object sender, EventArgs e)
         {
