@@ -296,6 +296,7 @@
             SaveProduct.TabIndex = 33;
             SaveProduct.Text = "Save";
             SaveProduct.UseVisualStyleBackColor = true;
+            SaveProduct.Click += SaveProduct_Click;
             // 
             // DeleteProduct
             // 

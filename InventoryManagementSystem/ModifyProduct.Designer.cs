@@ -83,6 +83,7 @@
             SaveProduct.TabIndex = 54;
             SaveProduct.Text = "Save";
             SaveProduct.UseVisualStyleBackColor = true;
+            SaveProduct.Click += SaveProduct_Click;
             // 
             // AddPart
             // 

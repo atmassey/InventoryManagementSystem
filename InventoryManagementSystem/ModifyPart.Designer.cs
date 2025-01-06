@@ -67,6 +67,7 @@
             SaveButton.TabIndex = 36;
             SaveButton.Text = "Save";
             SaveButton.UseVisualStyleBackColor = true;
+            SaveButton.Click += SavePart_Click;
             // 
             // MachineIDTextBox
             // 

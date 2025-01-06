@@ -22,5 +22,12 @@ namespace InventoryManagementSystem
             MainForm mainForm = new MainForm();
             mainForm.Show();
         }
+        private void SavePart_Click(object sender, EventArgs e)
+        {
+            // TODO: Add modify part logic
+            Close();
+            MainForm mainForm = new MainForm();
+            mainForm.Show();
+        }
     }
 }

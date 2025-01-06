@@ -37,5 +37,12 @@ namespace InventoryManagementSystem
             MainForm mainForm = new MainForm();
             mainForm.Show();
         }
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+           // TODO: Add part to inventory
+            Close();
+            MainForm mainForm = new MainForm();
+            mainForm.Show();
+        }
     }
 }

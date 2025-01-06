@@ -22,5 +22,11 @@ namespace InventoryManagementSystem
             MainForm mainForm = new MainForm();
             mainForm.Show();
         }
+        private void SaveProduct_Click(object sender, EventArgs e)
+        {
+            Close();
+            MainForm mainForm = new MainForm();
+            mainForm.Show();
+        }
     }
 }
