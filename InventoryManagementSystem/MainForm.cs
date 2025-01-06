@@ -30,17 +30,17 @@ namespace InventoryManagementSystem
             ProductsDataView.AutoResizeColumns();
             ProductsDataView.AutoResizeRows();
         }
-
-        private void PartsList_DrawItem(object sender, DrawListViewItemEventArgs e)
+        
+        private void PartsDataView_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
         {
+            if (e.StateChanged != DataGridViewElementStates.Selected) return;
+            DeletePart.Enabled = true;
         }
-
-        private void MainForm_Load(object sender, EventArgs e)
+        private void ProductsDataView_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
         {
-
-
+            if (e.StateChanged != DataGridViewElementStates.Selected) return;
+            DeleteProduct.Enabled = true;
         }
-
         private void Exit_Click(object sender, EventArgs e)
         {
             Close();

@@ -80,6 +80,7 @@
             // 
             // DeletePart
             // 
+            DeletePart.Enabled = false;
             DeletePart.Location = new Point(424, 335);
             DeletePart.Name = "DeletePart";
             DeletePart.Size = new Size(80, 30);
@@ -109,6 +110,7 @@
             // 
             // DeleteProduct
             // 
+            DeleteProduct.Enabled = false;
             DeleteProduct.Location = new Point(972, 335);
             DeleteProduct.Name = "DeleteProduct";
             DeleteProduct.Size = new Size(80, 30);
@@ -186,6 +188,7 @@
             PartsDataView.Name = "PartsDataView";
             PartsDataView.Size = new Size(484, 199);
             PartsDataView.TabIndex = 16;
+            PartsDataView.RowStateChanged += PartsDataView_RowStateChanged;
             // 
             // ProductsDataView
             // 
@@ -197,6 +200,7 @@
             ProductsDataView.ReadOnly = true;
             ProductsDataView.Size = new Size(484, 199);
             ProductsDataView.TabIndex = 17;
+            ProductsDataView.RowStateChanged += ProductsDataView_RowStateChanged;
             // 
             // MainForm
             // 
@@ -222,7 +226,6 @@
             Name = "MainForm";
             ShowIcon = false;
             Text = "Main Screen";
-            Load += MainForm_Load;
             ((System.ComponentModel.ISupportInitialize)PartsDataView).EndInit();
             ((System.ComponentModel.ISupportInitialize)ProductsDataView).EndInit();
             ResumeLayout(false);
