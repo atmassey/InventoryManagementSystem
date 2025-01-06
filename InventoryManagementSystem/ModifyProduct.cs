@@ -19,6 +19,32 @@ namespace InventoryManagementSystem
             InitializeComponent();
             _inventory = inventory;
             _product = product;
+            IDTextBox.Text = product.ProductId.ToString();
+            NameTextBox.Text = product.Name;
+            InventoryTextBox.Text = product.InStock.ToString();
+            PriceTextBox.Text = product.Price.ToString("C2");
+            MaxTextBox.Text = product.Max.ToString();
+            MinTextBox.Text = product.Min.ToString();
+            SaveProduct.Enabled = false;
+            DeleteProduct.Enabled = false;
+
+            var partView = new BindingSource();
+            partView.DataSource = _inventory.AllParts;
+            PartDataView.DataSource = partView;
+            PartDataView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            PartDataView.AutoResizeColumns();
+            PartDataView.AutoResizeRows();
+
+            var associatedPartView = new BindingSource();
+            associatedPartView.DataSource = product.AssociatedParts;
+            AssocPartDataView.DataSource = associatedPartView;
+            AssocPartDataView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            AssocPartDataView.AutoResizeColumns();
+            AssocPartDataView.AutoResizeRows();
+        }
+        private void EnableSaveProduct()
+        {
+            SaveProduct.Enabled = NameTextBox.Text != "" && InventoryTextBox.Text != "" && PriceTextBox.Text != "" && MaxTextBox .Text != "" && MinTextBox.Text != "";
         }
         private void Cancel_Click(object sender, EventArgs e)
         {
