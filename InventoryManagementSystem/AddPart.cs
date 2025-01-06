@@ -12,9 +12,11 @@ namespace InventoryManagementSystem
 {
     public partial class AddPart : Form
     {
-        public AddPart()
+        private Inventory _inventory;
+        public AddPart(Inventory inventory)
         {
             InitializeComponent();
+            _inventory = inventory;
         }
 
         private void PriceLabel_Click(object sender, EventArgs e)
@@ -34,14 +36,14 @@ namespace InventoryManagementSystem
         private void Cancel_Click(object sender, EventArgs e)
         {
             Close();
-            MainForm mainForm = new MainForm();
+            MainForm mainForm = new MainForm(_inventory);
             mainForm.Show();
         }
         private void SaveButton_Click(object sender, EventArgs e)
         {
            // TODO: Add part to inventory
             Close();
-            MainForm mainForm = new MainForm();
+            MainForm mainForm = new MainForm(_inventory);
             mainForm.Show();
         }
     }

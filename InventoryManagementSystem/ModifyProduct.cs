@@ -12,20 +12,22 @@ namespace InventoryManagementSystem
 {
     public partial class ModifyProduct : Form
     {
-        public ModifyProduct()
+        private Inventory _inventory;
+        public ModifyProduct(Inventory inventory)
         {
             InitializeComponent();
+            _inventory = inventory;
         }
         private void Cancel_Click(object sender, EventArgs e)
         {
             Close();
-            MainForm mainForm = new MainForm();
+            MainForm mainForm = new MainForm(_inventory);
             mainForm.Show();
         }
         private void SaveProduct_Click(object sender, EventArgs e)
         {
             Close();
-            MainForm mainForm = new MainForm();
+            MainForm mainForm = new MainForm(_inventory);
             mainForm.Show();
         }
     }

@@ -12,21 +12,24 @@ namespace InventoryManagementSystem
 {
     public partial class ModifyPart : Form
     {
-        public ModifyPart()
+        private Inventory _inventory;
+        public ModifyPart(Inventory inventory) 
+            
         {
             InitializeComponent();
+            _inventory = inventory;
         }
         private void Cancel_Click(object sender, EventArgs e)
         {
             Close();
-            MainForm mainForm = new MainForm();
+            MainForm mainForm = new MainForm(_inventory);
             mainForm.Show();
         }
         private void SavePart_Click(object sender, EventArgs e)
         {
             // TODO: Add modify part logic
             Close();
-            MainForm mainForm = new MainForm();
+            MainForm mainForm = new MainForm(_inventory);
             mainForm.Show();
         }
     }

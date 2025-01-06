@@ -1,12 +1,23 @@
+using System.Drawing.Text;
 using System.Security.AccessControl;
 
 namespace InventoryManagementSystem
 {
     public partial class MainForm : Form
     {
-        public MainForm()
+        private Inventory _inventory;
+        public MainForm(Inventory inventory)
         {
             InitializeComponent();
+
+            _inventory = inventory;
+            var partList = new BindingSource();
+            partList.DataSource = _inventory.AllParts;
+            partList.DataSource = partList;
+
+            var productList = new BindingSource();
+            productList.DataSource = _inventory.Products;
+            productList.DataSource = productList;
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -23,15 +34,18 @@ namespace InventoryManagementSystem
         }
         private void AddPart_Click(object sender, EventArgs e)
         {
-            AddPart addPart = new AddPart();
+            AddPart addPart = new AddPart(_inventory);
             addPart.Show();
             Hide();
         }
         private void ModifyPart_Click(Object sender, EventArgs e)
         {
-            ModifyPart modifyPart = new ModifyPart();
+            ModifyPart modifyPart = new ModifyPart(_inventory);
             modifyPart.Show();
             Hide();
+        }
+        private void DeletePart_Click(Object sender, EventArgs e)
+        {
         }
         private void AddProduct_Click(object sender, EventArgs e)
         {

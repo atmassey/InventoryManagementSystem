@@ -72,6 +72,44 @@ namespace InventoryManagementSystem
                 }
             }
         }
+        public void Preload()
+        {
+            Product product = new Product
+            {
+                ProductId = 1,
+                Name = "Product 1",
+                Price = 10.00m,
+                InStock = 10,
+                Min = 1,
+                Max = 100
+            };
+
+            Inhouse inhouse = new Inhouse
+            {
+                PartId = 1,
+                Name = "Part 1",
+                Price = 1.00m,
+                InStock = 10,
+                Min = 1,
+                Max = 100,
+                MachineId = 1
+            };
+
+            Outsourced outsourced = new Outsourced
+            {
+                PartId = 2,
+                Name = "Part 2",
+                Price = 2.00m,
+                InStock = 20,
+                Min = 1,
+                Max = 200,
+                CompanyName = "Company 1"
+            };
+
+            AddProduct(product);
+            AddPart(inhouse);
+            AddPart(outsourced);
+        }
     }
 
 }
