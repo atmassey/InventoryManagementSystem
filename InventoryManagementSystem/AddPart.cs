@@ -20,6 +20,7 @@ namespace InventoryManagementSystem
             int newPartId = _inventory.AllParts.Count + 1;
             IDTextBox.Text = newPartId.ToString();
             IDTextBox.Enabled = false;
+            SaveButton.CausesValidation = true;
         }
         private void Cancel_Click(object sender, EventArgs e)
         {
@@ -35,10 +36,141 @@ namespace InventoryManagementSystem
         {
             MachineIDLabel.Text = @"Company Name";
         }
+        private void NameTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(NameTextBox.Text))
+            {
+                e.Cancel = true;
+                NameTextBox.Focus();
+                errorProvider1.SetError(NameTextBox, "Part name is required");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(NameTextBox, "");
+            }
+        }
+        private void InventoryTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(InventoryTextBox.Text))
+            {
+                e.Cancel = true;
+                InventoryTextBox.Focus();
+                errorProvider1.SetError(InventoryTextBox, "Inventory is required");
+            }
+            else if (!int.TryParse(InventoryTextBox.Text, out _))
+            {
+                e.Cancel = true;
+                InventoryTextBox.Focus();
+                errorProvider1.SetError(InventoryTextBox, "Inventory must be a number");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(InventoryTextBox, "");
+            }
+        }
+        private void PriceTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(PriceTextBox.Text))
+            {
+                e.Cancel = true;
+                PriceTextBox.Focus();
+                errorProvider1.SetError(PriceTextBox, "Price is required");
+            }
+            else if (!decimal.TryParse(PriceTextBox.Text, out _))
+            {
+                e.Cancel = true;
+                PriceTextBox.Focus();
+                errorProvider1.SetError(PriceTextBox, "Price must be a number");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(PriceTextBox, "");
+            }
+        }
+        private void MaxTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(MaxTextBox.Text))
+            {
+                e.Cancel = true;
+                MaxTextBox.Focus();
+                errorProvider1.SetError(MaxTextBox, "Max is required");
+            }
+            else if (!int.TryParse(MaxTextBox.Text, out _))
+            {
+                e.Cancel = true;
+                MaxTextBox.Focus();
+                errorProvider1.SetError(MaxTextBox, "Max must be a number");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(MaxTextBox, "");
+            }
+        }
+        private void MinTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(MinTextBox.Text))
+            {
+                e.Cancel = true;
+                MinTextBox.Focus();
+                errorProvider1.SetError(MinTextBox, "Min is required");
+            }
+            else if (!int.TryParse(MinTextBox.Text, out _))
+            {
+                e.Cancel = true;
+                MinTextBox.Focus();
+                errorProvider1.SetError(MinTextBox, "Min must be a number");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(MinTextBox, "");
+            }
+        }
+        private void MachineIDTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            if (InHouseRadio.Checked) {
+                if (string.IsNullOrEmpty(MachineIDTextBox.Text))
+                {
+                    e.Cancel = true;
+                    MachineIDTextBox.Focus();
+                    errorProvider1.SetError(MachineIDTextBox, "Machine ID is required");
+                }
+                else if (!int.TryParse(MachineIDTextBox.Text, out _))
+                {
+                    e.Cancel = true;
+                    MachineIDTextBox.Focus();
+                    errorProvider1.SetError(MachineIDTextBox, "Machine ID must be a number");
+                }
+                else
+                {
+                    e.Cancel = false;
+                    errorProvider1.SetError(MachineIDTextBox, "");
+                }
+            }
+            else
+            {
+                if (string.IsNullOrEmpty(MachineIDTextBox.Text))
+                {
+                    e.Cancel = true;
+                    MachineIDTextBox.Focus();
+                    errorProvider1.SetError(MachineIDTextBox, "Company Name is required");
+                }
+                else
+                {
+                    e.Cancel = false;
+                    errorProvider1.SetError(MachineIDTextBox, "");
+                }
+            }
+        }
         private void SaveButton_Click(object sender, EventArgs e)
         {
             try
             {
+                ValidateChildren(ValidationConstraints.Enabled);
                 if (InHouseRadio.Checked)
                 {
                     Inhouse inHouse = new Inhouse();
@@ -49,6 +181,16 @@ namespace InventoryManagementSystem
                     inHouse.Min = int.Parse(MinTextBox.Text);
                     inHouse.Max = int.Parse(MaxTextBox.Text);
                     inHouse.MachineId = int.Parse(MachineIDTextBox.Text);
+                    if (inHouse.Min > inHouse.Max)
+                    {
+                        MessageBox.Show("Min must be less than Max");
+                        return;
+                    }
+                    if (inHouse.InStock < inHouse.Min || inHouse.InStock > inHouse.Max)
+                    {
+                        MessageBox.Show("Inventory must be between Min and Max");
+                        return;
+                    }
                     _inventory.AddPart(inHouse);
                 }
                 else

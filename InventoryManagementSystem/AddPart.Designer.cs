@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             TitleLabel = new Label();
             InHouseRadio = new RadioButton();
             OutsourcedRadio = new RadioButton();
@@ -47,6 +48,8 @@
             MachineIDTextBox = new TextBox();
             SaveButton = new Button();
             Cancel_Button = new Button();
+            errorProvider1 = new ErrorProvider(components);
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
             // 
             // TitleLabel
@@ -160,6 +163,7 @@
             NameTextBox.Name = "NameTextBox";
             NameTextBox.Size = new Size(170, 23);
             NameTextBox.TabIndex = 11;
+            NameTextBox.Validating += NameTextBox_Validating;
             // 
             // InventoryTextBox
             // 
@@ -167,6 +171,7 @@
             InventoryTextBox.Name = "InventoryTextBox";
             InventoryTextBox.Size = new Size(170, 23);
             InventoryTextBox.TabIndex = 12;
+            InventoryTextBox.Validating += InventoryTextBox_Validating;
             // 
             // PriceTextBox
             // 
@@ -174,6 +179,7 @@
             PriceTextBox.Name = "PriceTextBox";
             PriceTextBox.Size = new Size(170, 23);
             PriceTextBox.TabIndex = 13;
+            PriceTextBox.Validating += PriceTextBox_Validating;
             // 
             // MinTextBox
             // 
@@ -181,6 +187,7 @@
             MinTextBox.Name = "MinTextBox";
             MinTextBox.Size = new Size(85, 23);
             MinTextBox.TabIndex = 14;
+            MinTextBox.Validating += MinTextBox_Validating;
             // 
             // MaxTextBox
             // 
@@ -188,6 +195,7 @@
             MaxTextBox.Name = "MaxTextBox";
             MaxTextBox.Size = new Size(85, 23);
             MaxTextBox.TabIndex = 15;
+            MaxTextBox.Validating += MaxTextBox_Validating;
             // 
             // MachineIDTextBox
             // 
@@ -195,6 +203,7 @@
             MachineIDTextBox.Name = "MachineIDTextBox";
             MachineIDTextBox.Size = new Size(170, 23);
             MachineIDTextBox.TabIndex = 16;
+            MachineIDTextBox.Validating += MachineIDTextBox_Validating;
             // 
             // SaveButton
             // 
@@ -215,6 +224,10 @@
             Cancel_Button.Text = "Cancel";
             Cancel_Button.UseVisualStyleBackColor = true;
             Cancel_Button.Click += Cancel_Click;
+            // 
+            // errorProvider1
+            // 
+            errorProvider1.ContainerControl = this;
             // 
             // AddPart
             // 
@@ -243,6 +256,7 @@
             Name = "AddPart";
             ShowIcon = false;
             Text = "Part";
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -268,5 +282,6 @@
         private TextBox MachineIDTextBox;
         private Button SaveButton;
         private Button Cancel_Button;
+        private ErrorProvider errorProvider1;
     }
 }
