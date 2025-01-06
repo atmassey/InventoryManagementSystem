@@ -49,7 +49,7 @@
             PartPrice = new ColumnHeader();
             PartMin = new ColumnHeader();
             PartMax = new ColumnHeader();
-            listView2 = new ListView();
+            ProductList = new ListView();
             ProductID = new ColumnHeader();
             ProductName = new ColumnHeader();
             ProductInventory = new ColumnHeader();
@@ -234,16 +234,16 @@
             PartMax.TextAlign = HorizontalAlignment.Center;
             PartMax.Width = 80;
             // 
-            // listView2
+            // ProductList
             // 
-            listView2.BackColor = SystemColors.ScrollBar;
-            listView2.Columns.AddRange(new ColumnHeader[] { ProductID, ProductName, ProductInventory, ProductPrice, ProductMin, ProductMax });
-            listView2.Location = new Point(572, 118);
-            listView2.Name = "listView2";
-            listView2.Size = new Size(484, 199);
-            listView2.TabIndex = 17;
-            listView2.UseCompatibleStateImageBehavior = false;
-            listView2.View = View.Details;
+            ProductList.BackColor = SystemColors.ScrollBar;
+            ProductList.Columns.AddRange(new ColumnHeader[] { ProductID, ProductName, ProductInventory, ProductPrice, ProductMin, ProductMax });
+            ProductList.Location = new Point(572, 118);
+            ProductList.Name = "ProductList";
+            ProductList.Size = new Size(484, 199);
+            ProductList.TabIndex = 17;
+            ProductList.UseCompatibleStateImageBehavior = false;
+            ProductList.View = View.Details;
             // 
             // ProductID
             // 
@@ -285,7 +285,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1078, 550);
-            Controls.Add(listView2);
+            Controls.Add(ProductList);
             Controls.Add(PartList);
             Controls.Add(MainFormTitle);
             Controls.Add(ProductsLabel);
@@ -331,7 +331,7 @@
         private ColumnHeader PartInventory;
         private ColumnHeader PartPrice;
         private ColumnHeader PartMin;
-        private ListView listView2;
+        private ListView ProductList;
         private ColumnHeader ProductID;
         private ColumnHeader ProductName;
         private ColumnHeader ProductInventory;
