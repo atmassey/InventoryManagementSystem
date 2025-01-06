@@ -37,33 +37,44 @@ namespace InventoryManagementSystem
         }
         private void SaveButton_Click(object sender, EventArgs e)
         {
-           if (InHouseRadio.Checked)
+            try
             {
-                Inhouse inHouse = new Inhouse();
-                inHouse.PartId = int.Parse(IDTextBox.Text);
-                inHouse.Name = NameTextBox.Text;
-                inHouse.Price = decimal.Parse(PriceTextBox.Text);
-                inHouse.InStock = int.Parse(InventoryTextBox.Text);
-                inHouse.Min = int.Parse(MinTextBox.Text);
-                inHouse.Max = int.Parse(MaxTextBox.Text);
-                inHouse.MachineId = int.Parse(MachineIDTextBox.Text);
-                _inventory.AddPart(inHouse);
+                if (InHouseRadio.Checked)
+                {
+                    Inhouse inHouse = new Inhouse();
+                    inHouse.PartId = int.Parse(IDTextBox.Text);
+                    inHouse.Name = NameTextBox.Text;
+                    inHouse.Price = decimal.Parse(PriceTextBox.Text);
+                    inHouse.InStock = int.Parse(InventoryTextBox.Text);
+                    inHouse.Min = int.Parse(MinTextBox.Text);
+                    inHouse.Max = int.Parse(MaxTextBox.Text);
+                    inHouse.MachineId = int.Parse(MachineIDTextBox.Text);
+                    _inventory.AddPart(inHouse);
+                }
+                else
+                {
+                    Outsourced outsourced = new Outsourced();
+                    outsourced.PartId = int.Parse(IDTextBox.Text);
+                    outsourced.Name = NameTextBox.Text;
+                    outsourced.Price = decimal.Parse(PriceTextBox.Text);
+                    outsourced.InStock = int.Parse(InventoryTextBox.Text);
+                    outsourced.Min = int.Parse(MinTextBox.Text);
+                    outsourced.Max = int.Parse(MaxTextBox.Text);
+                    outsourced.CompanyName = MachineIDTextBox.Text;
+                    _inventory.AddPart(outsourced);
+                }
+                Close();
+                MainForm mainForm = new MainForm(_inventory);
+                mainForm.Show();
             }
-            else
+            catch (FormatException ex)
             {
-                Outsourced outsourced = new Outsourced();
-                outsourced.PartId = int.Parse(IDTextBox.Text);
-                outsourced.Name = NameTextBox.Text;
-                outsourced.Price = decimal.Parse(PriceTextBox.Text);
-                outsourced.InStock = int.Parse(InventoryTextBox.Text);
-                outsourced.Min = int.Parse(MinTextBox.Text);
-                outsourced.Max = int.Parse(MaxTextBox.Text);
-                outsourced.CompanyName = MachineIDTextBox.Text;
-                _inventory.AddPart(outsourced);
+                MessageBox.Show(ex.Message);
             }
-            Close();
-            MainForm mainForm = new MainForm(_inventory);
-            mainForm.Show();
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

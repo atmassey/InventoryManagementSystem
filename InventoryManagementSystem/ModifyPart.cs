@@ -46,24 +46,35 @@ namespace InventoryManagementSystem
         }
         private void SavePart_Click(object sender, EventArgs e)
         {
-            Part updatedPart = _part;
-            updatedPart.Name = NameTextBox.Text;
-            updatedPart.InStock = int.Parse(InventoryTextBox.Text);
-            updatedPart.Price = decimal.Parse(PriceTextBox.Text);
-            updatedPart.Max = int.Parse(MaxTextBox.Text);
-            updatedPart.Min = int.Parse(MinTextBox.Text);
-            if (InHouseRadio.Checked)
-            {
-                ((Inhouse) updatedPart).MachineId = int.Parse(MachineIDTextBox.Text);
+            try {
+                Part updatedPart = _part;
+                updatedPart.Name = NameTextBox.Text;
+                updatedPart.InStock = int.Parse(InventoryTextBox.Text);
+                updatedPart.Price = decimal.Parse(PriceTextBox.Text);
+                updatedPart.Max = int.Parse(MaxTextBox.Text);
+                updatedPart.Min = int.Parse(MinTextBox.Text);
+                if (InHouseRadio.Checked)
+                {
+                    ((Inhouse)updatedPart).MachineId = int.Parse(MachineIDTextBox.Text);
+                }
+                else
+                {
+                    ((Outsourced)updatedPart).CompanyName = MachineIDTextBox.Text;
+                }
+                _inventory.UpdatePart(_part.PartId, updatedPart);
+                Close();
+                MainForm mainForm = new MainForm(_inventory);
+                mainForm.Show();
             }
-            else
+            catch (FormatException ex)
             {
-                ((Outsourced) updatedPart).CompanyName = MachineIDTextBox.Text;
+                MessageBox.Show(ex.Message);
             }
-            _inventory.UpdatePart(_part.PartId, updatedPart);
-            Close();
-            MainForm mainForm = new MainForm(_inventory);
-            mainForm.Show();
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
     }
 }
