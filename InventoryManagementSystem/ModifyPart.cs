@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -37,12 +38,41 @@ namespace InventoryManagementSystem
                 OutsourcedRadio.Checked = true;
                 MachineIDTextBox.Text = ((Outsourced) part).CompanyName;
             }
+            SaveButton.Enabled = false;
+        }
+        private void EnableSaveButton()
+        {
+            SaveButton.Enabled = NameTextBox.Text != "" && InventoryTextBox.Text != "" && PriceTextBox.Text != "" && MaxTextBox.Text != "" && MinTextBox.Text != "" && MachineIDTextBox.Text != "";
         }
         private void Cancel_Click(object sender, EventArgs e)
         {
             Close();
             MainForm mainForm = new MainForm(_inventory);
             mainForm.Show();
+        }
+        private void NameTextBox_TextChanged(object sender, EventArgs e)
+        {
+            EnableSaveButton();
+        }
+        private void InventoryTextBox_TextChanged(object sender, EventArgs e)
+        {
+            EnableSaveButton();
+        }
+        private void PriceTextBox_TextChanged(object sender, EventArgs e)
+        {
+            EnableSaveButton();
+        }
+        private void MaxTextBox_TextChanged(object sender, EventArgs e)
+        {
+            EnableSaveButton();
+        }
+        private void MinTextBox_TextChanged(object sender, EventArgs e)
+        {
+            EnableSaveButton();
+        }
+        private void MachineIDTextBox_TextChanged(object sender, EventArgs e)
+        {
+            EnableSaveButton();
         }
         private void InHouseRadio_CheckedChanged(object sender, EventArgs e)
         {
