@@ -21,12 +21,41 @@ namespace InventoryManagementSystem
             IDTextBox.Text = newPartId.ToString();
             IDTextBox.Enabled = false;
             SaveButton.CausesValidation = true;
+            SaveButton.Enabled = false;
+        }
+        private void EnableSave()
+        {
+            SaveButton.Enabled = NameTextBox.Text != "" && InventoryTextBox.Text != "" && PriceTextBox.Text != "" && MaxTextBox.Text != "" && MinTextBox.Text != "" && MachineIDTextBox.Text != "";
         }
         private void Cancel_Click(object sender, EventArgs e)
         {
             Close();
             MainForm mainForm = new MainForm(_inventory);
             mainForm.Show();
+        }
+        private void NameTextBox_TextChanged(object sender, EventArgs e)
+        {
+            EnableSave();
+        }
+        private void InventoryTextBox_TextChanged(object sender, EventArgs e)
+        {
+            EnableSave();
+        }
+        private void PriceTextBox_TextChanged(object sender, EventArgs e)
+        {
+            EnableSave();
+        }
+        private void MaxTextBox_TextChanged(object sender, EventArgs e)
+        {
+            EnableSave();
+        }
+        private void MinTextBox_TextChanged(object sender, EventArgs e)
+        {
+            EnableSave();
+        }
+        private void MachineIDTextBox_TextChanged(object sender, EventArgs e)
+        {
+            EnableSave();
         }
         private void InHouseRadio_CheckedChanged(object sender, EventArgs e)
         {

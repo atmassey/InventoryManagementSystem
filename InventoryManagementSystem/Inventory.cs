@@ -15,7 +15,7 @@ namespace InventoryManagementSystem
 
         public void AddProduct(Product product)
         {
-            Products!.Add(product);
+            Products.Add(product);
         }
         public bool RemoveProduct(Product product)  {
            var result =  Products!.Remove(product);
@@ -109,6 +109,7 @@ namespace InventoryManagementSystem
             AddProduct(product);
             AddPart(inhouse);
             AddPart(outsourced);
+            product.AddAssociatedPart(inhouse);
         }
     }
 

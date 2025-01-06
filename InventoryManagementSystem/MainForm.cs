@@ -116,9 +116,14 @@ namespace InventoryManagementSystem
         }
         private void ModifyProduct_Click(Object sender, EventArgs e)
         {
-            ModifyProduct modifyProduct = new ModifyProduct(_inventory);
-            modifyProduct.Show();
-            Hide();
+            foreach(DataGridViewRow row in ProductsDataView.SelectedRows)
+            {
+                int productId = Convert.ToInt32(row.Cells[0].Value);
+                Product product = _inventory.LookupProduct(productId);
+                ModifyProduct modifyProduct = new ModifyProduct(_inventory, product);
+                modifyProduct.Show();
+                Hide();
+            }
         }
         private void DeleteProduct_Click(Object sender, EventArgs e)
         {

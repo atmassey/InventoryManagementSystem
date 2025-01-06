@@ -13,10 +13,12 @@ namespace InventoryManagementSystem
     public partial class ModifyProduct : Form
     {
         private Inventory _inventory;
-        public ModifyProduct(Inventory inventory)
+        private Product _product;
+        public ModifyProduct(Inventory inventory, Product product)
         {
             InitializeComponent();
             _inventory = inventory;
+            _product = product;
         }
         private void Cancel_Click(object sender, EventArgs e)
         {
