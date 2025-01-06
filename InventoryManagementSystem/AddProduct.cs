@@ -30,5 +30,6 @@ namespace InventoryManagementSystem
             Close();
             MainForm mainForm = new MainForm(_inventory);
             mainForm.Show();
+        }
     }
 }

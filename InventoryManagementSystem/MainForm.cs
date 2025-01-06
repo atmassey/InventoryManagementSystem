@@ -49,13 +49,13 @@ namespace InventoryManagementSystem
         }
         private void AddProduct_Click(object sender, EventArgs e)
         {
-            AddProduct addProduct = new AddProduct();
+            AddProduct addProduct = new AddProduct(_inventory);
             addProduct.Show();
             Hide();
         }
         private void ModifyProduct_Click(Object sender, EventArgs e)
         {
-            ModifyProduct modifyProduct = new ModifyProduct();
+            ModifyProduct modifyProduct = new ModifyProduct(_inventory);
             modifyProduct.Show();
             Hide();
         }
