@@ -41,20 +41,6 @@
             PartInventoryLabel = new Label();
             PartNameLabel = new Label();
             PartIDLabel = new Label();
-            AllCandidateParts = new ListView();
-            PartIDAll = new ColumnHeader();
-            PartNameAll = new ColumnHeader();
-            PartInventoryAll = new ColumnHeader();
-            PartPriceAll = new ColumnHeader();
-            PartMinAll = new ColumnHeader();
-            PartMaxAll = new ColumnHeader();
-            AssociatedParts = new ListView();
-            PartIDAssoc = new ColumnHeader();
-            NameAssoc = new ColumnHeader();
-            InventoryAssoc = new ColumnHeader();
-            PriceAssoc = new ColumnHeader();
-            MinAssoc = new ColumnHeader();
-            MaxAssoc = new ColumnHeader();
             SearchPartTextBox = new TextBox();
             SearchParts = new Button();
             AddPart = new Button();
@@ -63,6 +49,10 @@
             CancelProduct = new Button();
             PartsAssocLabel = new Label();
             ProductsLabel = new Label();
+            PartDataView = new DataGridView();
+            AssocPartDataView = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)PartDataView).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)AssocPartDataView).BeginInit();
             SuspendLayout();
             // 
             // TitleLabel
@@ -171,98 +161,6 @@
             PartIDLabel.TabIndex = 16;
             PartIDLabel.Text = "ID";
             // 
-            // AllCandidateParts
-            // 
-            AllCandidateParts.BackColor = SystemColors.ScrollBar;
-            AllCandidateParts.Columns.AddRange(new ColumnHeader[] { PartIDAll, PartNameAll, PartInventoryAll, PartPriceAll, PartMinAll, PartMaxAll });
-            AllCandidateParts.Location = new Point(397, 67);
-            AllCandidateParts.Name = "AllCandidateParts";
-            AllCandidateParts.Size = new Size(480, 199);
-            AllCandidateParts.TabIndex = 28;
-            AllCandidateParts.UseCompatibleStateImageBehavior = false;
-            AllCandidateParts.View = View.Details;
-            // 
-            // PartIDAll
-            // 
-            PartIDAll.Text = "Part ID";
-            PartIDAll.Width = 80;
-            // 
-            // PartNameAll
-            // 
-            PartNameAll.Text = "Name";
-            PartNameAll.TextAlign = HorizontalAlignment.Center;
-            PartNameAll.Width = 80;
-            // 
-            // PartInventoryAll
-            // 
-            PartInventoryAll.Text = "Inventory";
-            PartInventoryAll.TextAlign = HorizontalAlignment.Center;
-            PartInventoryAll.Width = 80;
-            // 
-            // PartPriceAll
-            // 
-            PartPriceAll.Text = "Price";
-            PartPriceAll.TextAlign = HorizontalAlignment.Center;
-            PartPriceAll.Width = 80;
-            // 
-            // PartMinAll
-            // 
-            PartMinAll.Text = "Min";
-            PartMinAll.TextAlign = HorizontalAlignment.Center;
-            PartMinAll.Width = 80;
-            // 
-            // PartMaxAll
-            // 
-            PartMaxAll.Text = "Max";
-            PartMaxAll.TextAlign = HorizontalAlignment.Center;
-            PartMaxAll.Width = 76;
-            // 
-            // AssociatedParts
-            // 
-            AssociatedParts.BackColor = SystemColors.ScrollBar;
-            AssociatedParts.Columns.AddRange(new ColumnHeader[] { PartIDAssoc, NameAssoc, InventoryAssoc, PriceAssoc, MinAssoc, MaxAssoc });
-            AssociatedParts.Location = new Point(401, 326);
-            AssociatedParts.Name = "AssociatedParts";
-            AssociatedParts.Size = new Size(480, 199);
-            AssociatedParts.TabIndex = 29;
-            AssociatedParts.UseCompatibleStateImageBehavior = false;
-            AssociatedParts.View = View.Details;
-            // 
-            // PartIDAssoc
-            // 
-            PartIDAssoc.Text = "Part ID";
-            PartIDAssoc.Width = 80;
-            // 
-            // NameAssoc
-            // 
-            NameAssoc.Text = "Name";
-            NameAssoc.TextAlign = HorizontalAlignment.Center;
-            NameAssoc.Width = 80;
-            // 
-            // InventoryAssoc
-            // 
-            InventoryAssoc.Text = "Inventory";
-            InventoryAssoc.TextAlign = HorizontalAlignment.Center;
-            InventoryAssoc.Width = 80;
-            // 
-            // PriceAssoc
-            // 
-            PriceAssoc.Text = "Price";
-            PriceAssoc.TextAlign = HorizontalAlignment.Center;
-            PriceAssoc.Width = 80;
-            // 
-            // MinAssoc
-            // 
-            MinAssoc.Text = "Min";
-            MinAssoc.TextAlign = HorizontalAlignment.Center;
-            MinAssoc.Width = 80;
-            // 
-            // MaxAssoc
-            // 
-            MaxAssoc.Text = "Max";
-            MaxAssoc.TextAlign = HorizontalAlignment.Center;
-            MaxAssoc.Width = 76;
-            // 
             // SearchPartTextBox
             // 
             SearchPartTextBox.Location = new Point(697, 28);
@@ -337,11 +235,29 @@
             ProductsLabel.TabIndex = 59;
             ProductsLabel.Text = "All candidate Parts";
             // 
+            // PartDataView
+            // 
+            PartDataView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            PartDataView.Location = new Point(406, 70);
+            PartDataView.Name = "PartDataView";
+            PartDataView.Size = new Size(480, 199);
+            PartDataView.TabIndex = 60;
+            // 
+            // AssocPartDataView
+            // 
+            AssocPartDataView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            AssocPartDataView.Location = new Point(406, 326);
+            AssocPartDataView.Name = "AssocPartDataView";
+            AssocPartDataView.Size = new Size(480, 199);
+            AssocPartDataView.TabIndex = 61;
+            // 
             // AddProduct
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(904, 587);
+            Controls.Add(AssocPartDataView);
+            Controls.Add(PartDataView);
             Controls.Add(ProductsLabel);
             Controls.Add(PartsAssocLabel);
             Controls.Add(CancelProduct);
@@ -350,8 +266,6 @@
             Controls.Add(AddPart);
             Controls.Add(SearchPartTextBox);
             Controls.Add(SearchParts);
-            Controls.Add(AssociatedParts);
-            Controls.Add(AllCandidateParts);
             Controls.Add(MaxTextBox);
             Controls.Add(MinTextBox);
             Controls.Add(PriceTextBox);
@@ -368,6 +282,8 @@
             Name = "AddProduct";
             ShowIcon = false;
             Text = "Product";
+            ((System.ComponentModel.ISupportInitialize)PartDataView).EndInit();
+            ((System.ComponentModel.ISupportInitialize)AssocPartDataView).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -387,20 +303,6 @@
         private Label PartInventoryLabel;
         private Label PartNameLabel;
         private Label PartIDLabel;
-        private ListView AllCandidateParts;
-        private ColumnHeader PartIDAll;
-        private ColumnHeader PartNameAll;
-        private ColumnHeader PartInventoryAll;
-        private ColumnHeader PartPriceAll;
-        private ColumnHeader PartMinAll;
-        private ColumnHeader PartMaxAll;
-        private ListView AssociatedParts;
-        private ColumnHeader PartIDAssoc;
-        private ColumnHeader NameAssoc;
-        private ColumnHeader InventoryAssoc;
-        private ColumnHeader PriceAssoc;
-        private ColumnHeader MinAssoc;
-        private ColumnHeader MaxAssoc;
         private TextBox SearchPartTextBox;
         private Button SearchParts;
         private Button AddPart;
@@ -409,5 +311,7 @@
         private Button CancelProduct;
         private Label PartsAssocLabel;
         private Label ProductsLabel;
+        private DataGridView PartDataView;
+        private DataGridView AssocPartDataView;
     }
 }
