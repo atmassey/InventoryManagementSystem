@@ -16,6 +16,11 @@ namespace InventoryManagementSystem
 
         private void InitializeViews()
         {
+            DeletePart.Enabled = false;
+            DeleteProduct.Enabled = false;
+            ModifyPart.Enabled = false;
+            ModifyProduct.Enabled = false;
+
             var partView = new BindingSource();
             partView.DataSource = _inventory.AllParts;
             PartsDataView.DataSource = partView;
@@ -34,11 +39,13 @@ namespace InventoryManagementSystem
         private void PartsDataView_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
         {
             if (e.StateChanged != DataGridViewElementStates.Selected) return;
+            ModifyPart.Enabled = true;
             DeletePart.Enabled = true;
         }
         private void ProductsDataView_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
         {
             if (e.StateChanged != DataGridViewElementStates.Selected) return;
+            ModifyPart.Enabled = true;
             DeleteProduct.Enabled = true;
         }
         private void Exit_Click(object sender, EventArgs e)
@@ -55,9 +62,14 @@ namespace InventoryManagementSystem
         }
         private void ModifyPart_Click(Object sender, EventArgs e)
         {
-            ModifyPart modifyPart = new ModifyPart(_inventory);
-            modifyPart.Show();
-            Hide();
+            foreach (DataGridViewRow row in PartsDataView.SelectedRows)
+            {
+                int partId = Convert.ToInt32(row.Cells[0].Value);
+                Part part = _inventory.LookupPart(partId);
+                ModifyPart modifyPart = new ModifyPart(_inventory, part);
+                modifyPart.Show();
+                Hide();
+            }
         }
         private void SearchParts_Click(Object sender, EventArgs e)
         {
@@ -94,6 +106,7 @@ namespace InventoryManagementSystem
             }
             PartsDataView.ClearSelection();
             DeletePart.Enabled = false;
+            ModifyPart.Enabled = false;
         }
         private void AddProduct_Click(object sender, EventArgs e)
         {
@@ -122,6 +135,7 @@ namespace InventoryManagementSystem
             }
             ProductsDataView.ClearSelection();
             DeleteProduct.Enabled = false;
+            ModifyProduct.Enabled = false;
         }
         private void SearchProducts_Click(Object sender, EventArgs e)
         {
