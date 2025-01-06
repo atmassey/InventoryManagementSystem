@@ -45,7 +45,7 @@ namespace InventoryManagementSystem
         private void ProductsDataView_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
         {
             if (e.StateChanged != DataGridViewElementStates.Selected) return;
-            ModifyPart.Enabled = true;
+            ModifyProduct.Enabled = true;
             DeleteProduct.Enabled = true;
         }
         private void Exit_Click(object sender, EventArgs e)
