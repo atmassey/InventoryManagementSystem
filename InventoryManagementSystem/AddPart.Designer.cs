@@ -69,6 +69,7 @@
             InHouseRadio.TabStop = true;
             InHouseRadio.Text = "In-House";
             InHouseRadio.UseVisualStyleBackColor = true;
+            InHouseRadio.Click += InHouseRadio_CheckedChanged;
             // 
             // OutsourcedRadio
             // 
@@ -80,6 +81,7 @@
             OutsourcedRadio.TabStop = true;
             OutsourcedRadio.Text = "Outsourced";
             OutsourcedRadio.UseVisualStyleBackColor = true;
+            OutsourcedRadio.Click += OutsourcedRadio_CheckedChanged;
             // 
             // PartIDLabel
             // 
@@ -116,7 +118,6 @@
             PriceLabel.Size = new Size(68, 15);
             PriceLabel.TabIndex = 6;
             PriceLabel.Text = "Price / Cost";
-            PriceLabel.Click += PriceLabel_Click;
             // 
             // MaxLabel
             // 
@@ -126,12 +127,11 @@
             MaxLabel.Size = new Size(30, 15);
             MaxLabel.TabIndex = 7;
             MaxLabel.Text = "Max";
-            MaxLabel.Click += label2_Click;
             // 
             // MinLabel
             // 
             MinLabel.AutoSize = true;
-            MinLabel.Location = new Point(226, 228);
+            MinLabel.Location = new Point(236, 228);
             MinLabel.Name = "MinLabel";
             MinLabel.Size = new Size(28, 15);
             MinLabel.TabIndex = 8;
@@ -140,7 +140,7 @@
             // IDTextBox
             // 
             IDTextBox.Enabled = false;
-            IDTextBox.Location = new Point(124, 61);
+            IDTextBox.Location = new Point(142, 61);
             IDTextBox.Name = "IDTextBox";
             IDTextBox.Size = new Size(170, 23);
             IDTextBox.TabIndex = 9;
@@ -156,46 +156,45 @@
             // 
             // NameTextBox
             // 
-            NameTextBox.Location = new Point(124, 101);
+            NameTextBox.Location = new Point(142, 101);
             NameTextBox.Name = "NameTextBox";
             NameTextBox.Size = new Size(170, 23);
             NameTextBox.TabIndex = 11;
             // 
             // InventoryTextBox
             // 
-            InventoryTextBox.Location = new Point(124, 144);
+            InventoryTextBox.Location = new Point(142, 144);
             InventoryTextBox.Name = "InventoryTextBox";
             InventoryTextBox.Size = new Size(170, 23);
             InventoryTextBox.TabIndex = 12;
             // 
             // PriceTextBox
             // 
-            PriceTextBox.Location = new Point(124, 184);
+            PriceTextBox.Location = new Point(142, 184);
             PriceTextBox.Name = "PriceTextBox";
             PriceTextBox.Size = new Size(170, 23);
             PriceTextBox.TabIndex = 13;
             // 
             // MinTextBox
             // 
-            MinTextBox.Location = new Point(260, 225);
+            MinTextBox.Location = new Point(270, 225);
             MinTextBox.Name = "MinTextBox";
             MinTextBox.Size = new Size(85, 23);
             MinTextBox.TabIndex = 14;
             // 
             // MaxTextBox
             // 
-            MaxTextBox.Location = new Point(124, 225);
+            MaxTextBox.Location = new Point(134, 225);
             MaxTextBox.Name = "MaxTextBox";
             MaxTextBox.Size = new Size(85, 23);
             MaxTextBox.TabIndex = 15;
             // 
             // MachineIDTextBox
             // 
-            MachineIDTextBox.Location = new Point(124, 264);
+            MachineIDTextBox.Location = new Point(142, 264);
             MachineIDTextBox.Name = "MachineIDTextBox";
             MachineIDTextBox.Size = new Size(170, 23);
             MachineIDTextBox.TabIndex = 16;
-            MachineIDTextBox.TextChanged += Inventory_TextChanged;
             // 
             // SaveButton
             // 
