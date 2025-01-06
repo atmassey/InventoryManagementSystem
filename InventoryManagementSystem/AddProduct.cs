@@ -17,6 +17,9 @@ namespace InventoryManagementSystem
         {
             InitializeComponent();
             _inventory = inventory;
+            int newProductId = _inventory.Products.Count + 1;
+            IDTextBox.Text = newProductId.ToString();
+            IDTextBox.Enabled = false;
         }
         private void Cancel_Click(object sender, EventArgs e)
         {

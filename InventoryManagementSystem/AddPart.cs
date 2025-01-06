@@ -17,6 +17,9 @@ namespace InventoryManagementSystem
         {
             InitializeComponent();
             _inventory = inventory;
+            int newPartId = _inventory.AllParts.Count + 1;
+            IDTextBox.Text = newPartId.ToString();
+            IDTextBox.Enabled = false;
         }
 
         private void PriceLabel_Click(object sender, EventArgs e)
