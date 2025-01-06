@@ -42,11 +42,13 @@ namespace InventoryManagementSystem
             {
                 e.Cancel = true;
                 NameTextBox.Focus();
+                NameTextBox.BackColor = Color.Red;
                 errorProvider1.SetError(NameTextBox, "Part name is required");
             }
             else
             {
                 e.Cancel = false;
+                NameTextBox.BackColor = SystemColors.Window;
                 errorProvider1.SetError(NameTextBox, "");
             }
         }
@@ -56,17 +58,20 @@ namespace InventoryManagementSystem
             {
                 e.Cancel = true;
                 InventoryTextBox.Focus();
+                InventoryTextBox.BackColor = Color.Red;
                 errorProvider1.SetError(InventoryTextBox, "Inventory is required");
             }
             else if (!int.TryParse(InventoryTextBox.Text, out _))
             {
                 e.Cancel = true;
                 InventoryTextBox.Focus();
+                InventoryTextBox.BackColor = Color.Red;
                 errorProvider1.SetError(InventoryTextBox, "Inventory must be a number");
             }
             else
             {
                 e.Cancel = false;
+                InventoryTextBox.BackColor = SystemColors.Window;
                 errorProvider1.SetError(InventoryTextBox, "");
             }
         }
@@ -76,17 +81,20 @@ namespace InventoryManagementSystem
             {
                 e.Cancel = true;
                 PriceTextBox.Focus();
+                PriceTextBox.BackColor = Color.Red;
                 errorProvider1.SetError(PriceTextBox, "Price is required");
             }
             else if (!decimal.TryParse(PriceTextBox.Text, out _))
             {
                 e.Cancel = true;
                 PriceTextBox.Focus();
+                PriceTextBox.BackColor = Color.Red;
                 errorProvider1.SetError(PriceTextBox, "Price must be a number");
             }
             else
             {
                 e.Cancel = false;
+                PriceTextBox.BackColor = SystemColors.Window;
                 errorProvider1.SetError(PriceTextBox, "");
             }
         }
@@ -96,17 +104,20 @@ namespace InventoryManagementSystem
             {
                 e.Cancel = true;
                 MaxTextBox.Focus();
+                MaxTextBox.BackColor = Color.Red;
                 errorProvider1.SetError(MaxTextBox, "Max is required");
             }
             else if (!int.TryParse(MaxTextBox.Text, out _))
             {
                 e.Cancel = true;
                 MaxTextBox.Focus();
+                MaxTextBox.BackColor = Color.Red;
                 errorProvider1.SetError(MaxTextBox, "Max must be a number");
             }
             else
             {
                 e.Cancel = false;
+                MaxTextBox.BackColor = SystemColors.Window;
                 errorProvider1.SetError(MaxTextBox, "");
             }
         }
@@ -116,17 +127,20 @@ namespace InventoryManagementSystem
             {
                 e.Cancel = true;
                 MinTextBox.Focus();
+                MinTextBox.BackColor = Color.Red;
                 errorProvider1.SetError(MinTextBox, "Min is required");
             }
             else if (!int.TryParse(MinTextBox.Text, out _))
             {
                 e.Cancel = true;
                 MinTextBox.Focus();
+                MinTextBox.BackColor = Color.Red;
                 errorProvider1.SetError(MinTextBox, "Min must be a number");
             }
             else
             {
                 e.Cancel = false;
+                MinTextBox.BackColor = SystemColors.Window;
                 errorProvider1.SetError(MinTextBox, "");
             }
         }
@@ -137,17 +151,20 @@ namespace InventoryManagementSystem
                 {
                     e.Cancel = true;
                     MachineIDTextBox.Focus();
+                    MachineIDTextBox.BackColor = Color.Red;
                     errorProvider1.SetError(MachineIDTextBox, "Machine ID is required");
                 }
                 else if (!int.TryParse(MachineIDTextBox.Text, out _))
                 {
                     e.Cancel = true;
                     MachineIDTextBox.Focus();
+                    MachineIDTextBox.BackColor = Color.Red;
                     errorProvider1.SetError(MachineIDTextBox, "Machine ID must be a number");
                 }
                 else
                 {
                     e.Cancel = false;
+                    MachineIDTextBox.BackColor = SystemColors.Window;
                     errorProvider1.SetError(MachineIDTextBox, "");
                 }
             }
@@ -157,11 +174,13 @@ namespace InventoryManagementSystem
                 {
                     e.Cancel = true;
                     MachineIDTextBox.Focus();
+                    MachineIDTextBox.BackColor = Color.Red;
                     errorProvider1.SetError(MachineIDTextBox, "Company Name is required");
                 }
                 else
                 {
                     e.Cancel = false;
+                    MachineIDTextBox.BackColor = SystemColors.Window;
                     errorProvider1.SetError(MachineIDTextBox, "");
                 }
             }
