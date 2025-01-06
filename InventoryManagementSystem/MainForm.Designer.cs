@@ -42,20 +42,10 @@
             PartsLabel = new Label();
             ProductsLabel = new Label();
             MainFormTitle = new Label();
-            PartList = new ListView();
-            PartID = new ColumnHeader();
-            PartName = new ColumnHeader();
-            PartInventory = new ColumnHeader();
-            PartPrice = new ColumnHeader();
-            PartMin = new ColumnHeader();
-            PartMax = new ColumnHeader();
-            ProductList = new ListView();
-            ProductID = new ColumnHeader();
-            ProductName = new ColumnHeader();
-            ProductInventory = new ColumnHeader();
-            ProductPrice = new ColumnHeader();
-            ProductMin = new ColumnHeader();
-            ProductMax = new ColumnHeader();
+            PartsDataView = new DataGridView();
+            ProductsDataView = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)PartsDataView).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)ProductsDataView).BeginInit();
             SuspendLayout();
             // 
             // Exit
@@ -160,6 +150,7 @@
             // 
             // PartsLabel
             // 
+            PartsLabel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             PartsLabel.AutoSize = true;
             PartsLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             PartsLabel.Location = new Point(24, 94);
@@ -188,105 +179,32 @@
             MainFormTitle.TabIndex = 15;
             MainFormTitle.Text = "Inventory Management System";
             // 
-            // PartList
+            // PartsDataView
             // 
-            PartList.BackColor = SystemColors.ScrollBar;
-            PartList.Columns.AddRange(new ColumnHeader[] { PartID, PartName, PartInventory, PartPrice, PartMin, PartMax });
-            PartList.Location = new Point(24, 118);
-            PartList.Name = "PartList";
-            PartList.Size = new Size(480, 199);
-            PartList.TabIndex = 16;
-            PartList.UseCompatibleStateImageBehavior = false;
-            PartList.View = View.Details;
+            PartsDataView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            PartsDataView.Location = new Point(24, 118);
+            PartsDataView.Name = "PartsDataView";
+            PartsDataView.Size = new Size(484, 199);
+            PartsDataView.TabIndex = 16;
             // 
-            // PartID
+            // ProductsDataView
             // 
-            PartID.Text = "Part ID";
-            PartID.Width = 80;
-            // 
-            // PartName
-            // 
-            PartName.Text = "Name";
-            PartName.TextAlign = HorizontalAlignment.Center;
-            PartName.Width = 80;
-            // 
-            // PartInventory
-            // 
-            PartInventory.Text = "Inventory";
-            PartInventory.TextAlign = HorizontalAlignment.Center;
-            PartInventory.Width = 80;
-            // 
-            // PartPrice
-            // 
-            PartPrice.Text = "Price";
-            PartPrice.TextAlign = HorizontalAlignment.Center;
-            PartPrice.Width = 80;
-            // 
-            // PartMin
-            // 
-            PartMin.Text = "Min";
-            PartMin.TextAlign = HorizontalAlignment.Center;
-            PartMin.Width = 80;
-            // 
-            // PartMax
-            // 
-            PartMax.Text = "Max";
-            PartMax.TextAlign = HorizontalAlignment.Center;
-            PartMax.Width = 80;
-            // 
-            // ProductList
-            // 
-            ProductList.BackColor = SystemColors.ScrollBar;
-            ProductList.Columns.AddRange(new ColumnHeader[] { ProductID, ProductName, ProductInventory, ProductPrice, ProductMin, ProductMax });
-            ProductList.Location = new Point(572, 118);
-            ProductList.Name = "ProductList";
-            ProductList.Size = new Size(484, 199);
-            ProductList.TabIndex = 17;
-            ProductList.UseCompatibleStateImageBehavior = false;
-            ProductList.View = View.Details;
-            // 
-            // ProductID
-            // 
-            ProductID.Text = "Product ID";
-            ProductID.Width = 80;
-            // 
-            // ProductName
-            // 
-            ProductName.Text = "Name";
-            ProductName.TextAlign = HorizontalAlignment.Center;
-            ProductName.Width = 80;
-            // 
-            // ProductInventory
-            // 
-            ProductInventory.Text = "Inventory";
-            ProductInventory.TextAlign = HorizontalAlignment.Center;
-            ProductInventory.Width = 80;
-            // 
-            // ProductPrice
-            // 
-            ProductPrice.Text = "Price";
-            ProductPrice.TextAlign = HorizontalAlignment.Center;
-            ProductPrice.Width = 80;
-            // 
-            // ProductMin
-            // 
-            ProductMin.Text = "Min";
-            ProductMin.TextAlign = HorizontalAlignment.Center;
-            ProductMin.Width = 80;
-            // 
-            // ProductMax
-            // 
-            ProductMax.Text = "Max";
-            ProductMax.TextAlign = HorizontalAlignment.Center;
-            ProductMax.Width = 80;
+            ProductsDataView.AllowUserToAddRows = false;
+            ProductsDataView.AllowUserToDeleteRows = false;
+            ProductsDataView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            ProductsDataView.Location = new Point(572, 118);
+            ProductsDataView.Name = "ProductsDataView";
+            ProductsDataView.ReadOnly = true;
+            ProductsDataView.Size = new Size(484, 199);
+            ProductsDataView.TabIndex = 17;
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1078, 550);
-            Controls.Add(ProductList);
-            Controls.Add(PartList);
+            ClientSize = new Size(1084, 562);
+            Controls.Add(ProductsDataView);
+            Controls.Add(PartsDataView);
             Controls.Add(MainFormTitle);
             Controls.Add(ProductsLabel);
             Controls.Add(PartsLabel);
@@ -305,6 +223,8 @@
             ShowIcon = false;
             Text = "Main Screen";
             Load += MainForm_Load;
+            ((System.ComponentModel.ISupportInitialize)PartsDataView).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ProductsDataView).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -325,19 +245,7 @@
         private Label PartsLabel;
         private Label ProductsLabel;
         private Label MainFormTitle;
-        private ListView PartList;
-        private ColumnHeader PartID;
-        private ColumnHeader PartName;
-        private ColumnHeader PartInventory;
-        private ColumnHeader PartPrice;
-        private ColumnHeader PartMin;
-        private ListView ProductList;
-        private ColumnHeader ProductID;
-        private ColumnHeader ProductName;
-        private ColumnHeader ProductInventory;
-        private ColumnHeader PartMax;
-        private ColumnHeader ProductPrice;
-        private ColumnHeader ProductMin;
-        private ColumnHeader ProductMax;
+        private DataGridView PartsDataView;
+        private DataGridView ProductsDataView;
     }
 }
