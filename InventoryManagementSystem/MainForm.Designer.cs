@@ -87,6 +87,7 @@
             DeletePart.TabIndex = 3;
             DeletePart.Text = "Delete";
             DeletePart.UseVisualStyleBackColor = true;
+            DeletePart.Click += DeletePart_Click;
             // 
             // AddProduct
             // 
@@ -117,6 +118,7 @@
             DeleteProduct.TabIndex = 6;
             DeleteProduct.Text = "Delete";
             DeleteProduct.UseVisualStyleBackColor = true;
+            DeleteProduct.Click += DeleteProduct_Click;
             // 
             // SearchParts
             // 
@@ -126,6 +128,7 @@
             SearchParts.TabIndex = 7;
             SearchParts.Text = "Search";
             SearchParts.UseVisualStyleBackColor = true;
+            SearchParts.Click += SearchParts_Click;
             // 
             // SearchProducts
             // 
@@ -135,6 +138,7 @@
             SearchProducts.TabIndex = 8;
             SearchProducts.Text = "Search";
             SearchProducts.UseVisualStyleBackColor = true;
+            SearchProducts.Click += SearchProducts_Click;
             // 
             // SearchPartTextBox
             // 
