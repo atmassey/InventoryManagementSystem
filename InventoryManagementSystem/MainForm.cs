@@ -16,11 +16,6 @@ namespace InventoryManagementSystem
 
         private void InitializeViews()
         {
-            DeletePart.Enabled = false;
-            DeleteProduct.Enabled = false;
-            ModifyPart.Enabled = false;
-            ModifyProduct.Enabled = false;
-
             var partView = new BindingSource();
             partView.DataSource = _inventory.AllParts;
             PartsDataView.DataSource = partView;
@@ -39,14 +34,10 @@ namespace InventoryManagementSystem
         private void PartsDataView_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
         {
             if (e.StateChanged != DataGridViewElementStates.Selected) return;
-            ModifyPart.Enabled = true;
-            DeletePart.Enabled = true;
         }
         private void ProductsDataView_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
         {
             if (e.StateChanged != DataGridViewElementStates.Selected) return;
-            ModifyProduct.Enabled = true;
-            DeleteProduct.Enabled = true;
         }
         private void Exit_Click(object sender, EventArgs e)
         {
@@ -62,6 +53,11 @@ namespace InventoryManagementSystem
         }
         private void ModifyPart_Click(Object sender, EventArgs e)
         {
+            if (PartsDataView.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a part to modify.");
+                return;
+            }
             foreach (DataGridViewRow row in PartsDataView.SelectedRows)
             {
                 int partId = Convert.ToInt32(row.Cells[0].Value);
@@ -93,6 +89,11 @@ namespace InventoryManagementSystem
         }
         private void DeletePart_Click(Object sender, EventArgs e)
         {
+            if (PartsDataView.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a part to delete.");
+                return;
+            }
             DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this part?", "Delete Part Confirmation", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
@@ -105,8 +106,6 @@ namespace InventoryManagementSystem
                 }
             }
             PartsDataView.ClearSelection();
-            DeletePart.Enabled = false;
-            ModifyPart.Enabled = false;
         }
         private void AddProduct_Click(object sender, EventArgs e)
         {
@@ -116,7 +115,12 @@ namespace InventoryManagementSystem
         }
         private void ModifyProduct_Click(Object sender, EventArgs e)
         {
-            foreach(DataGridViewRow row in ProductsDataView.SelectedRows)
+            if (ProductsDataView.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a product to modify.");
+                return;
+            }
+            foreach (DataGridViewRow row in ProductsDataView.SelectedRows)
             {
                 int productId = Convert.ToInt32(row.Cells[0].Value);
                 Product product = _inventory.LookupProduct(productId);
@@ -127,6 +131,11 @@ namespace InventoryManagementSystem
         }
         private void DeleteProduct_Click(Object sender, EventArgs e)
         {
+            if (ProductsDataView.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a product to delete.");
+                return;
+            }
             DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this product?", "Delete Product Confirmation", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
