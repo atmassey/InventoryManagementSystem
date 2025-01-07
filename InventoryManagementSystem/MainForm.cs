@@ -148,8 +148,6 @@ namespace InventoryManagementSystem
                 }
             }
             ProductsDataView.ClearSelection();
-            DeleteProduct.Enabled = false;
-            ModifyProduct.Enabled = false;
         }
         private void SearchProducts_Click(Object sender, EventArgs e)
         {

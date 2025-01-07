@@ -80,7 +80,6 @@
             // 
             // DeletePart
             // 
-            DeletePart.Enabled = false;
             DeletePart.Location = new Point(424, 335);
             DeletePart.Name = "DeletePart";
             DeletePart.Size = new Size(80, 30);
@@ -111,7 +110,6 @@
             // 
             // DeleteProduct
             // 
-            DeleteProduct.Enabled = false;
             DeleteProduct.Location = new Point(972, 335);
             DeleteProduct.Name = "DeleteProduct";
             DeleteProduct.Size = new Size(80, 30);
