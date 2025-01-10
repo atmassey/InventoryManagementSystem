@@ -100,16 +100,22 @@ namespace InventoryManagementSystem
             }
             catch (FormatException)
             {
-                var message = "Search Part ID must be a number.";
-                MessageBox.Show(message);
-                errorProvider1.SetError(SearchPartTextBox, message);
-                SearchPartTextBox.Focus();
-                SearchPartTextBox.BackColor = Color.Red;
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Part not found.");
-
+                bool found = false;
+                string searchValue = SearchPartTextBox.Text;
+                foreach (DataGridViewRow row in PartsDataView.Rows)
+                {
+                    if (row.Cells[1].Value.ToString().Contains(searchValue))
+                    {
+                        row.Selected = true;
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found)
+                {
+                    MessageBox.Show("Part not found.");
+                    PartsDataView.ClearSelection();
+                }
             }
         }
         private void DeletePart_Click(Object sender, EventArgs e)
@@ -207,15 +213,23 @@ namespace InventoryManagementSystem
                 errorProvider1.Clear();
             }
             catch (FormatException)
-            {   var message = "Search Product ID must be a number.";
-                MessageBox.Show(message);
-                errorProvider1.SetError(SearchProductTextBox, message);
-                SearchPartTextBox.Focus();
-                SearchProductTextBox.BackColor = Color.Red;
-            }
-            catch (Exception)
             {
-                MessageBox.Show("Product not found.");
+                bool found = false;
+                string searchValue = SearchProductTextBox.Text;
+                foreach (DataGridViewRow row in ProductsDataView.Rows)
+                {
+                    if (row.Cells[1].Value.ToString().Contains(searchValue))
+                    {
+                        row.Selected = true;
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found)
+                {
+                    MessageBox.Show("Product not found.");
+                    ProductsDataView.ClearSelection();
+                }
             }
         }
     }

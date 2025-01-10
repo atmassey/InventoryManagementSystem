@@ -44,7 +44,7 @@ namespace InventoryManagementSystem
         }
         public void AddPart(Part part)
         {
-            AllParts!.Add(part);
+            AllParts.Add(part);
         }
         public bool DeletePart(Part part)
         {

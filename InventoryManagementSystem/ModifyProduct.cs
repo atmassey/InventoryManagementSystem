@@ -242,15 +242,22 @@ namespace InventoryManagementSystem
             }
             catch (FormatException)
             {
-                var message = "Search Part ID must be a number.";
-                MessageBox.Show(message);
-                errorProvider1.SetError(SearchPartTextBox, message);
-                SearchPartTextBox.Focus();
-                SearchPartTextBox.BackColor = Color.Red;
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Part not found.");
+                bool found = false;
+                string searchValue = SearchPartTextBox.Text;
+                foreach (DataGridViewRow row in PartDataView.Rows)
+                {
+                    if (row.Cells[1].Value.ToString().Contains(searchValue))
+                    {
+                        row.Selected = true;
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found)
+                {
+                    MessageBox.Show("Part not found.");
+                    PartDataView.ClearSelection();
+                }
             }
         }
         private void DeleteAssocPart_Click(object sender, EventArgs e)
