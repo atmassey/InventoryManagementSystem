@@ -77,8 +77,8 @@ namespace InventoryManagementSystem
             Product product = new Product
             {
                 ProductId = Products.Count+1,
-                Name = "Product 1",
-                Price = 10.00m,
+                Name = "Engine",
+                Price = 1000.00m,
                 InStock = 10,
                 Min = 1,
                 Max = 100
@@ -87,8 +87,8 @@ namespace InventoryManagementSystem
             Inhouse inhouse = new Inhouse
             {
                 PartId = AllParts.Count+1,
-                Name = "Part 1",
-                Price = 1.00m,
+                Name = "Radiator",
+                Price = 80.00m,
                 InStock = 10,
                 Min = 1,
                 Max = 100,
@@ -98,12 +98,12 @@ namespace InventoryManagementSystem
             Outsourced outsourced = new Outsourced
             {
                 PartId = AllParts.Count+1,
-                Name = "Part 2",
-                Price = 2.00m,
+                Name = "Crank Shaft",
+                Price = 30.00m,
                 InStock = 20,
                 Min = 1,
                 Max = 200,
-                CompanyName = "Company 1"
+                CompanyName = "Crank Shaft Corp"
             };
             AddPart(outsourced);
             product.AddAssociatedPart(inhouse);
