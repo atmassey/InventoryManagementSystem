@@ -202,6 +202,12 @@ namespace InventoryManagementSystem
             {
                 int partId = Convert.ToInt32(row.Cells[0].Value);
                 Part part = _inventory.LookupPart(partId);
+                var alreadyAssociated = _product.LookupAssociatedPart(partId);
+                if (alreadyAssociated != null)
+                {
+                    MessageBox.Show("Part is already associated with this product.");
+                    return;
+                }
                 _product.AddAssociatedPart(part);
             }
             var associatedPartView = new BindingSource();
@@ -212,6 +218,42 @@ namespace InventoryManagementSystem
             PartDataView.ClearSelection();
             AssocPartDataView.ClearSelection();
             EnableSaveProduct();
+        }
+        private void SearchParts_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int searchValue = Convert.ToInt32(SearchPartTextBox.Text);
+                Part part = _inventory.LookupPart(searchValue);
+                if (part == null)
+                {
+                    MessageBox.Show("Part not found.");
+                    return;
+                }
+                PartDataView.ClearSelection();
+                foreach (DataGridViewRow row in PartDataView.Rows)
+                {
+                    if (Convert.ToInt32(row.Cells[0].Value) == searchValue)
+                    {
+                        row.Selected = true;
+                        break;
+                    }
+                }
+                SearchPartTextBox.BackColor = SystemColors.Window;
+                errorProvider1.Clear();
+            }
+            catch (FormatException)
+            {
+                var message = "Search Part ID must be a number.";
+                MessageBox.Show(message);
+                errorProvider1.SetError(SearchPartTextBox, message);
+                SearchPartTextBox.Focus();
+                SearchPartTextBox.BackColor = Color.Red;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Part not found.");
+            }
         }
         private void DeleteAssocPart_Click(object sender, EventArgs e)
         {

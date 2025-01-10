@@ -125,6 +125,15 @@ namespace InventoryManagementSystem
                 foreach (DataGridViewRow row in PartsDataView.SelectedRows)
                 {
                     {
+                        int partId = Convert.ToInt32(row.Cells[0].Value);
+                        foreach (var product in _inventory.Products)
+                        {
+                            if (product.LookupAssociatedPart(partId) != null)
+                            {
+                                MessageBox.Show("Part is associated with a product. Please remove the part from the product before deleting.");
+                                return;
+                            }
+                        }
                         // Delete the part from the inventory
                         PartsDataView.Rows.RemoveAt(row.Index);
                     }

@@ -103,6 +103,7 @@
             SearchParts.TabIndex = 51;
             SearchParts.Text = "Search";
             SearchParts.UseVisualStyleBackColor = true;
+            SearchParts.Click += SearchParts_Click;
             // 
             // DeleteAssocPart
             // 

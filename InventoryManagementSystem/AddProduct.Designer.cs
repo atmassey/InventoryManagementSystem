@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             TitleLabel = new Label();
             MaxTextBox = new TextBox();
             MinTextBox = new TextBox();
@@ -45,14 +46,16 @@
             SearchParts = new Button();
             AddPart = new Button();
             SaveProduct = new Button();
-            DeleteProduct = new Button();
+            DeleteAssocPart = new Button();
             CancelProduct = new Button();
             PartsAssocLabel = new Label();
             ProductsLabel = new Label();
             PartDataView = new DataGridView();
             AssocPartDataView = new DataGridView();
+            errorProvider1 = new ErrorProvider(components);
             ((System.ComponentModel.ISupportInitialize)PartDataView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)AssocPartDataView).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
             // 
             // TitleLabel
@@ -71,6 +74,8 @@
             MaxTextBox.Name = "MaxTextBox";
             MaxTextBox.Size = new Size(85, 23);
             MaxTextBox.TabIndex = 27;
+            MaxTextBox.TextChanged += MaxTextBox_TextChanged;
+            MaxTextBox.Validating += MaxTextBox_Validating;
             // 
             // MinTextBox
             // 
@@ -78,6 +83,8 @@
             MinTextBox.Name = "MinTextBox";
             MinTextBox.Size = new Size(85, 23);
             MinTextBox.TabIndex = 26;
+            MinTextBox.TextChanged += MinTextBox_TextChanged;
+            MinTextBox.Validating += MinTextBox_Validating;
             // 
             // PriceTextBox
             // 
@@ -85,6 +92,8 @@
             PriceTextBox.Name = "PriceTextBox";
             PriceTextBox.Size = new Size(170, 23);
             PriceTextBox.TabIndex = 25;
+            PriceTextBox.TextChanged += PriceTextBox_TextChanged;
+            PriceTextBox.Validating += PriceTextBox_Validating;
             // 
             // InventoryTextBox
             // 
@@ -92,6 +101,8 @@
             InventoryTextBox.Name = "InventoryTextBox";
             InventoryTextBox.Size = new Size(170, 23);
             InventoryTextBox.TabIndex = 24;
+            InventoryTextBox.TextChanged += InventoryTextBox_TextChanged;
+            InventoryTextBox.Validating += InventoryTextBox_Validating;
             // 
             // NameTextBox
             // 
@@ -99,6 +110,8 @@
             NameTextBox.Name = "NameTextBox";
             NameTextBox.Size = new Size(170, 23);
             NameTextBox.TabIndex = 23;
+            NameTextBox.TextChanged += NameTextBox_TextChanged;
+            NameTextBox.Validating += NameTextBox_Validating;
             // 
             // IDTextBox
             // 
@@ -176,6 +189,7 @@
             SearchParts.TabIndex = 30;
             SearchParts.Text = "Search";
             SearchParts.UseVisualStyleBackColor = true;
+            SearchParts.Click += SearchParts_Click;
             // 
             // AddPart
             // 
@@ -185,6 +199,7 @@
             AddPart.TabIndex = 32;
             AddPart.Text = "Add";
             AddPart.UseVisualStyleBackColor = true;
+            AddPart.Click += AddAssocPart_Click;
             // 
             // SaveProduct
             // 
@@ -196,14 +211,15 @@
             SaveProduct.UseVisualStyleBackColor = true;
             SaveProduct.Click += SaveProduct_Click;
             // 
-            // DeleteProduct
+            // DeleteAssocPart
             // 
-            DeleteProduct.Location = new Point(631, 543);
-            DeleteProduct.Name = "DeleteProduct";
-            DeleteProduct.Size = new Size(80, 30);
-            DeleteProduct.TabIndex = 34;
-            DeleteProduct.Text = "Delete";
-            DeleteProduct.UseVisualStyleBackColor = true;
+            DeleteAssocPart.Location = new Point(631, 543);
+            DeleteAssocPart.Name = "DeleteAssocPart";
+            DeleteAssocPart.Size = new Size(80, 30);
+            DeleteAssocPart.TabIndex = 34;
+            DeleteAssocPart.Text = "Delete";
+            DeleteAssocPart.UseVisualStyleBackColor = true;
+            DeleteAssocPart.Click += DeleteAssocPart_Click;
             // 
             // CancelProduct
             // 
@@ -238,6 +254,7 @@
             // PartDataView
             // 
             PartDataView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            PartDataView.EnableHeadersVisualStyles = false;
             PartDataView.Location = new Point(406, 70);
             PartDataView.Name = "PartDataView";
             PartDataView.RowHeadersVisible = false;
@@ -248,11 +265,16 @@
             // AssocPartDataView
             // 
             AssocPartDataView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            AssocPartDataView.EnableHeadersVisualStyles = false;
             AssocPartDataView.Location = new Point(406, 326);
             AssocPartDataView.Name = "AssocPartDataView";
             AssocPartDataView.RowHeadersVisible = false;
             AssocPartDataView.Size = new Size(480, 199);
             AssocPartDataView.TabIndex = 61;
+            // 
+            // errorProvider1
+            // 
+            errorProvider1.ContainerControl = this;
             // 
             // AddProduct
             // 
@@ -264,7 +286,7 @@
             Controls.Add(ProductsLabel);
             Controls.Add(PartsAssocLabel);
             Controls.Add(CancelProduct);
-            Controls.Add(DeleteProduct);
+            Controls.Add(DeleteAssocPart);
             Controls.Add(SaveProduct);
             Controls.Add(AddPart);
             Controls.Add(SearchPartTextBox);
@@ -285,8 +307,10 @@
             Name = "AddProduct";
             ShowIcon = false;
             Text = "Product";
+            Load += AddProduct_Load;
             ((System.ComponentModel.ISupportInitialize)PartDataView).EndInit();
             ((System.ComponentModel.ISupportInitialize)AssocPartDataView).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -310,11 +334,12 @@
         private Button SearchParts;
         private Button AddPart;
         private Button SaveProduct;
-        private Button DeleteProduct;
+        private Button DeleteAssocPart;
         private Button CancelProduct;
         private Label PartsAssocLabel;
         private Label ProductsLabel;
         private DataGridView PartDataView;
         private DataGridView AssocPartDataView;
+        private ErrorProvider errorProvider1;
     }
 }
