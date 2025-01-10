@@ -191,7 +191,9 @@
             PartsDataView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             PartsDataView.EnableHeadersVisualStyles = false;
             PartsDataView.Location = new Point(24, 118);
+            PartsDataView.MultiSelect = false;
             PartsDataView.Name = "PartsDataView";
+            PartsDataView.ReadOnly = true;
             PartsDataView.RowHeadersVisible = false;
             PartsDataView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             PartsDataView.Size = new Size(484, 199);
@@ -205,6 +207,7 @@
             ProductsDataView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             ProductsDataView.EnableHeadersVisualStyles = false;
             ProductsDataView.Location = new Point(572, 118);
+            ProductsDataView.MultiSelect = false;
             ProductsDataView.Name = "ProductsDataView";
             ProductsDataView.ReadOnly = true;
             ProductsDataView.RowHeadersVisible = false;

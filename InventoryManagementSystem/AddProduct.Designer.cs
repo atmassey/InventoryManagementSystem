@@ -240,6 +240,8 @@
             PartDataView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             PartDataView.Location = new Point(406, 70);
             PartDataView.Name = "PartDataView";
+            PartDataView.RowHeadersVisible = false;
+            PartDataView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             PartDataView.Size = new Size(480, 199);
             PartDataView.TabIndex = 60;
             // 
@@ -248,6 +250,7 @@
             AssocPartDataView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             AssocPartDataView.Location = new Point(406, 326);
             AssocPartDataView.Name = "AssocPartDataView";
+            AssocPartDataView.RowHeadersVisible = false;
             AssocPartDataView.Size = new Size(480, 199);
             AssocPartDataView.TabIndex = 61;
             // 
