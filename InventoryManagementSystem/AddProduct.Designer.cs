@@ -115,6 +115,7 @@
             // 
             // IDTextBox
             // 
+            IDTextBox.Enabled = false;
             IDTextBox.Location = new Point(106, 208);
             IDTextBox.Name = "IDTextBox";
             IDTextBox.Size = new Size(170, 23);

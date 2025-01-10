@@ -44,9 +44,7 @@ namespace InventoryManagementSystem
             AssocPartDataView.AutoResizeRows();
         }
         private void ModifyProduct_Load(object sender, EventArgs e)
-        {
-            IDTextBox.Enabled = false;
-            NameTextBox.SelectionStart = 0;
+        {  
             PartDataView.ClearSelection();
             PartDataView.ColumnHeadersDefaultCellStyle.SelectionBackColor = PartDataView.ColumnHeadersDefaultCellStyle.BackColor;
             PartDataView.RowsDefaultCellStyle.SelectionBackColor = Color.LightBlue;
@@ -276,7 +274,8 @@ namespace InventoryManagementSystem
             EnableSaveProduct();
         }
         private void Cancel_Click(object sender, EventArgs e)
-        {
+        {   CancelProduct.CausesValidation = false;
+            AutoValidate = AutoValidate.Disable;
             Close();
             MainForm mainForm = new MainForm(_inventory);
             mainForm.Show();

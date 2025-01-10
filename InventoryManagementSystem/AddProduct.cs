@@ -20,7 +20,6 @@ namespace InventoryManagementSystem
             _inventory = inventory;
             _product.ProductId = _inventory.Products.Count + 1;
             IDTextBox.Text = _product.ProductId.ToString();
-            IDTextBox.Enabled = false;
 
             var partView = new BindingSource();
             partView.DataSource = _inventory.AllParts;
@@ -261,7 +260,8 @@ namespace InventoryManagementSystem
             }
         }
         private void Cancel_Click(object sender, EventArgs e)
-        {
+        {   CancelProduct.CausesValidation = false;
+            AutoValidate = AutoValidate.Disable;
             Close();
             MainForm mainForm = new MainForm(_inventory);
             mainForm.Show();
