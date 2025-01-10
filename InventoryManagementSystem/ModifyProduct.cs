@@ -246,6 +246,11 @@ namespace InventoryManagementSystem
                 string searchValue = SearchPartTextBox.Text;
                 foreach (DataGridViewRow row in PartDataView.Rows)
                 {
+                    if (searchValue == "")
+                    {
+                        PartDataView.ClearSelection();
+                        return;
+                    }
                     if (row.Cells[1].Value.ToString().Contains(searchValue))
                     {
                         row.Selected = true;

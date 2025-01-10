@@ -234,26 +234,43 @@ namespace InventoryManagementSystem
         private void SavePart_Click(object sender, EventArgs e)
         {
             try {
-                Part updatedPart = _part;
-                updatedPart.Name = NameTextBox.Text;
-                updatedPart.InStock = int.Parse(InventoryTextBox.Text);
-                updatedPart.Price = decimal.Parse(PriceTextBox.Text);
-                updatedPart.Max = int.Parse(MaxTextBox.Text);
-                updatedPart.Min = int.Parse(MinTextBox.Text);
+                int min = int.Parse(MinTextBox.Text);
+                int max = int.Parse(MaxTextBox.Text);
+                int inStock = int.Parse(InventoryTextBox.Text);
+                decimal price = decimal.Parse(PriceTextBox.Text);
+                Part updatedPart;
                 if (InHouseRadio.Checked)
                 {
-                    ((Inhouse)updatedPart).MachineId = int.Parse(MachineIDTextBox.Text);
+                    updatedPart = new Inhouse
+                    {
+                        PartId = _part.PartId,
+                        Name = NameTextBox.Text,
+                        Price = price,
+                        InStock = inStock,
+                        Min = min,
+                        Max = max,
+                        MachineId = int.Parse(MachineIDTextBox.Text)
+                    };
                 }
                 else
                 {
-                    ((Outsourced)updatedPart).CompanyName = MachineIDTextBox.Text;
+                    updatedPart = new Outsourced
+                    {
+                        PartId = _part.PartId,
+                        Name = NameTextBox.Text,
+                        Price = price,
+                        InStock = inStock,
+                        Min = min,
+                        Max = max,
+                        CompanyName = MachineIDTextBox.Text
+                    };
                 }
-                if(updatedPart.Min > updatedPart.Max)
+                if(min > max)
                 {
                     MessageBox.Show("Min must be less than Max");
                     return;
                 }
-                if (updatedPart.InStock > updatedPart.Max || updatedPart.InStock < updatedPart.Min)
+                if (inStock > max || inStock < min)
                 {
                     MessageBox.Show("Inventory must be between Min and Max");
                     return;

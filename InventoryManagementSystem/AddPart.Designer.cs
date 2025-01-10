@@ -195,7 +195,7 @@
             // 
             // MaxTextBox
             // 
-            MaxTextBox.Location = new Point(134, 225);
+            MaxTextBox.Location = new Point(142, 225);
             MaxTextBox.Name = "MaxTextBox";
             MaxTextBox.Size = new Size(85, 23);
             MaxTextBox.TabIndex = 15;

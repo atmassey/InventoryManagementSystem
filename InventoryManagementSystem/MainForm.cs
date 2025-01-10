@@ -104,6 +104,11 @@ namespace InventoryManagementSystem
                 string searchValue = SearchPartTextBox.Text;
                 foreach (DataGridViewRow row in PartsDataView.Rows)
                 {
+                    if (searchValue == "")
+                    {
+                        PartsDataView.ClearSelection();
+                        return;
+                    }
                     if (row.Cells[1].Value.ToString().Contains(searchValue))
                     {
                         row.Selected = true;
@@ -218,6 +223,11 @@ namespace InventoryManagementSystem
                 string searchValue = SearchProductTextBox.Text;
                 foreach (DataGridViewRow row in ProductsDataView.Rows)
                 {
+                    if (searchValue == "")
+                    {
+                        ProductsDataView.ClearSelection();
+                        return;
+                    }
                     if (row.Cells[1].Value.ToString().Contains(searchValue))
                     {
                         row.Selected = true;
