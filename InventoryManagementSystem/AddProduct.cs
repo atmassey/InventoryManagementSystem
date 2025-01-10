@@ -27,6 +27,7 @@ namespace InventoryManagementSystem
             PartDataView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             PartDataView.AutoResizeColumns();
             PartDataView.AutoResizeRows();
+            AutoValidate = AutoValidate.Disable;
 
         }
         private void AddProduct_Load(object sender, EventArgs e)
@@ -306,7 +307,7 @@ namespace InventoryManagementSystem
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Unable to add product {ex.Message}");
+                MessageBox.Show($"Unable to add product due to data entry error {ex.Message}");
             }
         }
     }

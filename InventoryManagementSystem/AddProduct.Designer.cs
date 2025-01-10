@@ -270,6 +270,7 @@
             AssocPartDataView.Location = new Point(406, 326);
             AssocPartDataView.Name = "AssocPartDataView";
             AssocPartDataView.RowHeadersVisible = false;
+            AssocPartDataView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             AssocPartDataView.Size = new Size(480, 199);
             AssocPartDataView.TabIndex = 61;
             // 

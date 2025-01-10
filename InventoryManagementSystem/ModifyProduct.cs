@@ -272,6 +272,12 @@ namespace InventoryManagementSystem
                 MessageBox.Show("Please select a part to disassociate.");
                 return;
             }
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to disassociate the selected part(s)?", "Confirm", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.No)
+            {
+                AssocPartDataView.ClearSelection();
+                return;
+            }
             foreach (DataGridViewRow row in AssocPartDataView.SelectedRows)
             {
                 int partId = Convert.ToInt32(row.Cells[0].Value);
@@ -297,21 +303,27 @@ namespace InventoryManagementSystem
             try
             {
                 ValidateChildren(ValidationConstraints.Enabled);
-                _product.Name = NameTextBox.Text;
-                _product.InStock = int.Parse(InventoryTextBox.Text);
-                _product.Price = decimal.Parse(PriceTextBox.Text);
-                _product.Max = int.Parse(MaxTextBox.Text);
-                _product.Min = int.Parse(MinTextBox.Text);
-                if (_product.Min > _product.Max)
+                string name = NameTextBox.Text;
+                int max = Convert.ToInt32(MaxTextBox.Text);
+                int min = Convert.ToInt32(MinTextBox.Text);
+                int inventory = Convert.ToInt32(InventoryTextBox.Text);
+                decimal price = Convert.ToDecimal(PriceTextBox.Text);
+                if (min  > max)
                 {
                     MessageBox.Show("Min must be less than Max.");
                     return;
                 }
-                if (_product.InStock < _product.Min || _product.InStock > _product.Max)
+                if (inventory < min || inventory > max)
                 {
                     MessageBox.Show("Inventory must be between Min and Max.");
                     return;
                 }
+                _product.Name = name;
+                _product.InStock = inventory;
+                _product.Price = price;
+                _product.Max = max;
+                _product.Min = min;
+
                 _inventory.UpdateProduct(_product.ProductId, _product);
                 Close();
                 MainForm mainForm = new MainForm(_inventory);
@@ -320,7 +332,7 @@ namespace InventoryManagementSystem
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Unable to save product {ex.Message}");
+                MessageBox.Show($"Unable to save product due to data entry error {ex.Message}");
             }
         }
     }

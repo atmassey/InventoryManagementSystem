@@ -29,6 +29,7 @@ namespace InventoryManagementSystem
         }
         private void Cancel_Click(object sender, EventArgs e)
         {
+            AutoValidate = AutoValidate.Disable;
             Close();
             MainForm mainForm = new MainForm(_inventory);
             mainForm.Show();

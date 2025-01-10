@@ -184,6 +184,13 @@ namespace InventoryManagementSystem
             DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this product?", "Delete Product Confirmation", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
+                int productId = Convert.ToInt32(ProductsDataView.SelectedRows[0].Cells[0].Value);
+                Product product = _inventory.LookupProduct(productId);
+                if (product.AssociatedParts.Count > 0)
+                {
+                    MessageBox.Show("Product has associated parts. Please remove the parts from the product before deleting.");
+                    return;
+                }
                 foreach (DataGridViewRow row in ProductsDataView.SelectedRows)
                 {
                     {
