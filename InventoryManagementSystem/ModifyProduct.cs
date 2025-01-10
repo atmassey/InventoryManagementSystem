@@ -26,7 +26,6 @@ namespace InventoryManagementSystem
             PriceTextBox.Text = _product.Price.ToString();
             MaxTextBox.Text = _product.Max.ToString();
             MinTextBox.Text = _product.Min.ToString();
-            SaveProduct.Enabled = false;
             DeleteAssocPart.Enabled = false;
 
             var partView = new BindingSource();
@@ -56,30 +55,6 @@ namespace InventoryManagementSystem
         {
             if (e.StateChanged != DataGridViewElementStates.Selected) return;
             DeleteAssocPart.Enabled = true;
-        }
-        private void EnableSaveProduct()
-        {
-            SaveProduct.Enabled = NameTextBox.Text != "" && InventoryTextBox.Text != "" && PriceTextBox.Text != "" && MaxTextBox.Text != "" && MinTextBox.Text != "";
-        }
-        private void NameTextBox_TextChanged(object sender, EventArgs e)
-        {
-            EnableSaveProduct();
-        }
-        private void InventoryTextBox_TextChanged(object sender, EventArgs e)
-        {
-            EnableSaveProduct();
-        }
-        private void PriceTextBox_TextChanged(object sender, EventArgs e)
-        {
-            EnableSaveProduct();
-        }
-        private void MaxTextBox_TextChanged(object sender, EventArgs e)
-        {
-            EnableSaveProduct();
-        }
-        private void MinTextBox_TextChanged(object sender, EventArgs e)
-        {
-            EnableSaveProduct();
         }
         private void NameTextBox_Validating(object sender, CancelEventArgs e)
         {
@@ -215,7 +190,6 @@ namespace InventoryManagementSystem
             AssocPartDataView.AutoResizeColumns();
             PartDataView.ClearSelection();
             AssocPartDataView.ClearSelection();
-            EnableSaveProduct();
         }
         private void SearchParts_Click(object sender, EventArgs e)
         {
@@ -289,7 +263,6 @@ namespace InventoryManagementSystem
             AssocPartDataView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             AssocPartDataView.AutoResizeColumns();
             AssocPartDataView.ClearSelection();
-            EnableSaveProduct();
         }
         private void Cancel_Click(object sender, EventArgs e)
         {   CancelProduct.CausesValidation = false;
