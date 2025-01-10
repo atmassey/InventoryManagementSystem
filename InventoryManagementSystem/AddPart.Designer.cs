@@ -163,7 +163,6 @@
             NameTextBox.Name = "NameTextBox";
             NameTextBox.Size = new Size(170, 23);
             NameTextBox.TabIndex = 11;
-            NameTextBox.TextChanged += NameTextBox_TextChanged;
             NameTextBox.Validating += NameTextBox_Validating;
             // 
             // InventoryTextBox
@@ -172,7 +171,6 @@
             InventoryTextBox.Name = "InventoryTextBox";
             InventoryTextBox.Size = new Size(170, 23);
             InventoryTextBox.TabIndex = 12;
-            InventoryTextBox.TextChanged += InventoryTextBox_TextChanged;
             InventoryTextBox.Validating += InventoryTextBox_Validating;
             // 
             // PriceTextBox
@@ -181,7 +179,6 @@
             PriceTextBox.Name = "PriceTextBox";
             PriceTextBox.Size = new Size(170, 23);
             PriceTextBox.TabIndex = 13;
-            PriceTextBox.TextChanged += PriceTextBox_TextChanged;
             PriceTextBox.Validating += PriceTextBox_Validating;
             // 
             // MinTextBox
@@ -190,7 +187,6 @@
             MinTextBox.Name = "MinTextBox";
             MinTextBox.Size = new Size(85, 23);
             MinTextBox.TabIndex = 14;
-            MinTextBox.TextChanged += MinTextBox_TextChanged;
             MinTextBox.Validating += MinTextBox_Validating;
             // 
             // MaxTextBox
@@ -199,7 +195,6 @@
             MaxTextBox.Name = "MaxTextBox";
             MaxTextBox.Size = new Size(85, 23);
             MaxTextBox.TabIndex = 15;
-            MaxTextBox.TextChanged += MaxTextBox_TextChanged;
             MaxTextBox.Validating += MaxTextBox_Validating;
             // 
             // MachineIDTextBox
@@ -208,7 +203,6 @@
             MachineIDTextBox.Name = "MachineIDTextBox";
             MachineIDTextBox.Size = new Size(170, 23);
             MachineIDTextBox.TabIndex = 16;
-            MachineIDTextBox.TextChanged += MachineIDTextBox_TextChanged;
             MachineIDTextBox.Validating += MachineIDTextBox_Validating;
             // 
             // SaveButton
