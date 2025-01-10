@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using System.Drawing.Drawing2D;
 using System.Drawing.Text;
 using System.Security.AccessControl;
@@ -13,7 +14,6 @@ namespace InventoryManagementSystem
             InitializeComponent();
             InitializeViews();
         }
-
         private void InitializeViews()
         {
             var partView = new BindingSource();
@@ -30,7 +30,15 @@ namespace InventoryManagementSystem
             ProductsDataView.AutoResizeColumns();
             ProductsDataView.AutoResizeRows();
         }
-        
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            PartsDataView.ClearSelection();
+            PartsDataView.ColumnHeadersDefaultCellStyle.SelectionBackColor = PartsDataView.ColumnHeadersDefaultCellStyle.BackColor;
+            PartsDataView.RowsDefaultCellStyle.SelectionBackColor = Color.LightBlue;
+            ProductsDataView.ClearSelection();
+            ProductsDataView.ColumnHeadersDefaultCellStyle.SelectionBackColor = ProductsDataView.ColumnHeadersDefaultCellStyle.BackColor;
+            ProductsDataView.RowsDefaultCellStyle.SelectionBackColor = Color.LightBlue;
+        }
         private void PartsDataView_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
         {
             if (e.StateChanged != DataGridViewElementStates.Selected) return;
@@ -69,23 +77,40 @@ namespace InventoryManagementSystem
         }
         private void SearchParts_Click(Object sender, EventArgs e)
         {
-            int searchValue = Convert.ToInt32(SearchPartTextBox.Text);
-            Part part = _inventory.LookupPart(searchValue);
-            if (part == null)
+            try
+            {
+                int searchValue = Convert.ToInt32(SearchPartTextBox.Text);
+                Part part = _inventory.LookupPart(searchValue);
+                if (part == null)
+                {
+                    MessageBox.Show("Part not found.");
+                    return;
+                }
+                PartsDataView.ClearSelection();
+                foreach (DataGridViewRow row in PartsDataView.Rows)
+                {
+                    if (Convert.ToInt32(row.Cells[0].Value) == searchValue)
+                    {
+                        row.Selected = true;
+                        break;
+                    }
+                }
+                SearchPartTextBox.BackColor = SystemColors.Window;
+                errorProvider1.Clear();
+            }
+            catch (FormatException)
+            {
+                var message = "Search Part ID must be a number.";
+                MessageBox.Show(message);
+                errorProvider1.SetError(SearchPartTextBox, message);
+                SearchPartTextBox.Focus();
+                SearchPartTextBox.BackColor = Color.Red;
+            }
+            catch (Exception)
             {
                 MessageBox.Show("Part not found.");
-                return;
-            }
-            PartsDataView.ClearSelection();
-            foreach (DataGridViewRow row in PartsDataView.Rows)
-            {
-                if (Convert.ToInt32(row.Cells[0].Value) == searchValue)
-                {
-                    row.Selected = true;
-                    break;
-                }
-            }
 
+            }
         }
         private void DeletePart_Click(Object sender, EventArgs e)
         {
@@ -151,21 +176,37 @@ namespace InventoryManagementSystem
         }
         private void SearchProducts_Click(Object sender, EventArgs e)
         {
-            int searchValue = Convert.ToInt32(SearchProductTextBox.Text);
-            Product product = _inventory.LookupProduct(searchValue);
-            if (product == null)
+            try
+            {
+                int searchValue = Convert.ToInt32(SearchProductTextBox.Text);
+                Product product = _inventory.LookupProduct(searchValue);
+                if (product == null)
+                {
+                    MessageBox.Show("Product not found.");
+                    return;
+                }
+                ProductsDataView.ClearSelection();
+                foreach (DataGridViewRow row in ProductsDataView.Rows)
+                {
+                    if (Convert.ToInt32(row.Cells[0].Value) == searchValue)
+                    {
+                        row.Selected = true;
+                        break;
+                    }
+                }
+                SearchProductTextBox.BackColor = SystemColors.Window;
+                errorProvider1.Clear();
+            }
+            catch (FormatException)
+            {   var message = "Search Product ID must be a number.";
+                MessageBox.Show(message);
+                errorProvider1.SetError(SearchProductTextBox, message);
+                SearchPartTextBox.Focus();
+                SearchProductTextBox.BackColor = Color.Red;
+            }
+            catch (Exception)
             {
                 MessageBox.Show("Product not found.");
-                return;
-            }
-            ProductsDataView.ClearSelection();
-            foreach (DataGridViewRow row in ProductsDataView.Rows)
-            {
-                if (Convert.ToInt32(row.Cells[0].Value) == searchValue)
-                {
-                    row.Selected = true;
-                    break;
-                }
             }
         }
     }

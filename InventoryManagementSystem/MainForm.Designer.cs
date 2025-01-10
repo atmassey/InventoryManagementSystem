@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             Exit = new Button();
             AddPart = new Button();
             ModifyPart = new Button();
@@ -44,8 +45,10 @@
             MainFormTitle = new Label();
             PartsDataView = new DataGridView();
             ProductsDataView = new DataGridView();
+            errorProvider1 = new ErrorProvider(components);
             ((System.ComponentModel.ISupportInitialize)PartsDataView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ProductsDataView).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
             // 
             // Exit
@@ -186,8 +189,11 @@
             // PartsDataView
             // 
             PartsDataView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            PartsDataView.EnableHeadersVisualStyles = false;
             PartsDataView.Location = new Point(24, 118);
             PartsDataView.Name = "PartsDataView";
+            PartsDataView.RowHeadersVisible = false;
+            PartsDataView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             PartsDataView.Size = new Size(484, 199);
             PartsDataView.TabIndex = 16;
             PartsDataView.RowStateChanged += PartsDataView_RowStateChanged;
@@ -197,12 +203,19 @@
             ProductsDataView.AllowUserToAddRows = false;
             ProductsDataView.AllowUserToDeleteRows = false;
             ProductsDataView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            ProductsDataView.EnableHeadersVisualStyles = false;
             ProductsDataView.Location = new Point(572, 118);
             ProductsDataView.Name = "ProductsDataView";
             ProductsDataView.ReadOnly = true;
+            ProductsDataView.RowHeadersVisible = false;
+            ProductsDataView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             ProductsDataView.Size = new Size(484, 199);
             ProductsDataView.TabIndex = 17;
             ProductsDataView.RowStateChanged += ProductsDataView_RowStateChanged;
+            // 
+            // errorProvider1
+            // 
+            errorProvider1.ContainerControl = this;
             // 
             // MainForm
             // 
@@ -228,8 +241,10 @@
             Name = "MainForm";
             ShowIcon = false;
             Text = "Main Screen";
+            Load += MainForm_Load;
             ((System.ComponentModel.ISupportInitialize)PartsDataView).EndInit();
             ((System.ComponentModel.ISupportInitialize)ProductsDataView).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -252,5 +267,6 @@
         private Label MainFormTitle;
         private DataGridView PartsDataView;
         private DataGridView ProductsDataView;
+        private ErrorProvider errorProvider1;
     }
 }
